@@ -8,28 +8,28 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="{{ asset('/backend') }}/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="{{ asset('public/backend') }}/plugins/fontawesome-free/css/all.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="{{ asset('/backend') }}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="{{ asset('public/backend') }}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('/backend') }}/dist/css/adminlte.min.css">
-  <link rel="stylesheet" type="text/css" href="{{ asset('/backend/plugins/toastr/toastr.css') }}">
-
+  <link rel="stylesheet" href="{{ asset('public/backend') }}/dist/css/adminlte.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ asset('public/backend/plugins/toastr/toastr.css') }}">
+ 
    <!-- summernote -->
-  <link rel="stylesheet" href="{{ asset('/backend') }}/plugins/summernote/summernote-bs4.css">
+  <link rel="stylesheet" href="{{ asset('public/backend') }}/plugins/summernote/summernote-bs4.css">
 
  <!-- DataTables -->
-  <link rel="stylesheet" href="{{ asset('/backend') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="{{ asset('/backend') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="{{ asset('/backend') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="{{ asset('public/backend') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="{{ asset('public/backend') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="{{ asset('public/backend') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
-
+ 
 
 </head>
 <body >
 
-
-    <div class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed"></div>
+<div class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+    
 
 @guest
 
@@ -60,38 +60,38 @@
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 
-<script src="{{ asset('/backend') }}/plugins/jquery/jquery.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap -->
-<script src="{{ asset('/backend') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- overlayScrollbars -->
-<script src="{{ asset('/backend') }}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-<script src="{{ asset('/backend') }}/dist/js/adminlte.js"></script>
+<script src="{{ asset('public/backend') }}/dist/js/adminlte.js"></script>
 
 <!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->
-<script src="{{ asset('/backend') }}/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="{{ asset('/backend') }}/plugins/raphael/raphael.min.js"></script>
-<script src="{{ asset('/backend') }}/plugins/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="{{ asset('/backend') }}/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/raphael/raphael.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/jquery-mapael/maps/usa_states.min.js"></script>
 <!-- ChartJS -->
-<script src="{{ asset('/backend') }}/plugins/chart.js/Chart.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/chart.js/Chart.min.js"></script>
 
 <!-- AdminLTE for demo purposes -->
-<script src="{{ asset('/backend') }}/dist/js/demo.js"></script>
+<script src="{{ asset('public/backend') }}/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('/backend/dist/js/pages/dashboard2.js') }}"></script>
+<script src="{{ asset('public/backend/dist/js/pages/dashboard2.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('/backend/plugins/toastr/toastr.min.js') }}"></script>
-<script src="{{ asset('/backend/plugins/sweetalert/sweetalert.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/backend/plugins/toastr/toastr.min.js') }}"></script>
+<script src="{{ asset('public/backend/plugins/sweetalert/sweetalert.min.js') }}"></script>
 
-    <script>
+    <script>  
          $(document).on("click", "#delete", function(e){
              e.preventDefault();
              var link = $(this).attr("href");
                 swal({
-                  title: "Bạn có muốn xóa?",
-                  text: "Khi xóa, dữ liệu sẽ mất!",
+                  title: "Are you Want to delete?",
+                  text: "Once Delete, This will be Permanently Delete!",
                   icon: "warning",
                   buttons: true,
                   dangerMode: true,
@@ -100,18 +100,18 @@
                   if (willDelete) {
                        window.location.href = link;
                   } else {
-                    swal("Dữ liệu an toàn!");
+                    swal("Safe Data!");
                   }
                 });
             });
     </script>
    {{-- before  logout showing alert message --}}
-     <script>
+     <script>  
          $(document).on("click", "#logout", function(e){
              e.preventDefault();
              var link = $(this).attr("href");
                 swal({
-                  title: "Bạn có muốn đăng xuất?",
+                  title: "Are you Want to logout?",
                   text: "",
                   icon: "warning",
                   buttons: true,
@@ -121,7 +121,7 @@
                   if (willDelete) {
                        window.location.href = link;
                   } else {
-                    swal("Không đăng xuất!");
+                    swal("Not Logout!");
                   }
                 });
             });
@@ -148,30 +148,30 @@
         @endif
       </script>
 
-<script src="{{ asset('/backend') }}/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="{{ asset('/backend') }}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="{{ asset('/backend') }}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="{{ asset('/backend') }}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="{{ asset('/backend') }}/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="{{ asset('/backend') }}/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="{{ asset('/backend') }}/plugins/jszip/jszip.min.js"></script>
-<script src="{{ asset('/backend') }}/plugins/pdfmake/pdfmake.min.js"></script>
-<script src="{{ asset('/backend') }}/plugins/pdfmake/vfs_fonts.js"></script>
-<script src="{{ asset('/backend') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="{{ asset('/backend') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="{{ asset('/backend') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/jszip/jszip.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
   <script src="http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
   <script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
-<script src="{{ asset('/backend') }}/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
   $(function () {
     // Summernote
     $('.textarea').summernote()
   })
 </script>
-<script src="{{ asset('/backend/plugins/print_this/printThis.js') }}"></script>
+<script src="{{ asset('public') }}/backend/plugins/print_this/printThis.js"></script> 
 <script>
   $(function () {
     $("#example1").DataTable({

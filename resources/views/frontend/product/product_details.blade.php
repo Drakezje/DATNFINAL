@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/styles/product_styles.css">
-<link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/styles/product_responsive.css">
-<script src="{{ asset('js/share.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend') }}/styles/product_styles.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend') }}/styles/product_responsive.css">
+<script src="{{ asset('public/js/share.js') }}"></script>
 
 @include('layouts.front_partial.collaps_nav')
 
@@ -22,7 +22,7 @@
  $sum_rating=App\Models\Review::where('product_id',$product->id)->sum('rating');
  $count_rating=App\Models\Review::where('product_id',$product->id)->count('rating');
 
- //Share plugin
+ //Share plugin 
 			 // Share button 1
          $shareButtons1 = \Share::page(
               url()->current()
@@ -31,7 +31,7 @@
          ->twitter()
          ->linkedin()
          ->telegram()
-         ->whatsapp()
+         ->whatsapp() 
          ->reddit();
 
 
@@ -45,27 +45,27 @@
 			 $images=json_decode($product->images,true);
 			 $color=explode(',',$product->color);
 			 $sizes=explode(',',$product->size);
-
+			 
 			@endphp
-
+			
 
 			<!-- Images -->
 			<div class="col-lg-1 order-lg-1 order-2" >
 				<ul class="image_list">
-				@isset($images)
+				@isset($images)	
 					@foreach($images as $key => $image)
-					<li data-image="{{ asset('files/product/'.$image) }}">
-						<img src="{{ asset('files/product/'.$image) }}" alt="">
+					<li data-image="{{ asset('public/files/product/'.$image) }}">
+						<img src="{{ asset('public/files/product/'.$image) }}" alt="">
 					</li>
 					@endforeach
-				@endisset
+				@endisset	
 				</ul>
 			</div>
 
 			<!-- Selected Image -->
 			<div class="col-lg-4 order-lg-2 order-1">
 
-				<div class="image_selected"><img src="{{ asset('files/product/'.$product->thumbnail) }}" alt=""></div>
+				<div class="image_selected"><img src="{{ asset('public/files/product/'.$product->thumbnail) }}" alt=""></div>
 			</div>
 
 			<!-- Description -->
@@ -80,7 +80,7 @@
 					<div class="product_category"><b> Unit: {{ $product->unit }} </b></div>
 					 {{-- review star --}}
 					 <div>
-					@if($sum_rating !=NULL)
+					@if($sum_rating !=NULL)	
 					 	@if(intval($sum_rating/$count_rating) == 5)
 					 	<span class="fa fa-star checked"></span>
 					 	<span class="fa fa-star checked"></span>
@@ -112,10 +112,10 @@
 					 	<span class="fa fa-star "></span>
 					 	<span class="fa fa-star "></span>
 					 	@endif
-					@endif
+					@endif 	
 					 </div>
 					<div><br>
-
+						 
             @if($product->discount_price==NULL)
              <div class="" style="margin-top: 35px;">Price: {{ $setting->currency }}{{ $product->selling_price }}</div>
             @else
@@ -164,7 +164,7 @@
 								</div>
 								<br>
 							<div class="clearfix" style="z-index: 1000;">
-
+								
 								<!-- Product Quantity -->
 								<div class="product_quantity clearfix ml-2">
 									<span>Quantity: </span>
@@ -175,7 +175,7 @@
 									</div>
 								</div>
 							</div>
-
+						
 							<div class="button_container">
 								<div class="input-group mb-3">
 								  <div class="input-group-prepend">
@@ -189,7 +189,7 @@
 								  </div>
 								</div>
 							</div>
-
+								
 						</form>
 
 					</div>
@@ -203,17 +203,17 @@
 				<strong class="text-muted">Pickup Point of this product</strong><br>
 				<i class="fa fa-map"> {{ $product->pickuppoint->pickup_point_name }} </i><hr><br>
 				<strong class="text-muted"> Home Delivery :</strong><br>
-				 -> (4-8) days after the order placed.<br>
+				 -> (4-8) days after the order placed.<br> 
 				 -> Cash on Delivery Available.
 				 <hr><br>
 				 <strong class="text-muted"> Product Return & Warrenty :</strong><br>
-				 -> 7 days return guarranty.<br>
+				 -> 7 days return guarranty.<br> 
 				 -> Warrenty not available.
 				 <hr><br>
-				@isset($product->video)
+				@isset($product->video) 
 				 <strong>Product Video : </strong>
 				 <iframe width="340" height="205" src="https://www.youtube.com/embed/{{ $product->video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				@endisset
+				@endisset 
 			</div>
 
 		</div><br><br>
@@ -235,7 +235,7 @@
 			  <div class="card-header">
 				<h4>Ratings & Reviews of  {{ $product->name }}</h4>
 			  </div>
-
+			  
 
 
 				<div class="card-body">
@@ -274,7 +274,7 @@
 							<span class="fa fa-star "></span>
 							<span class="fa fa-star "></span>
 							@endif
-						@endif
+						@endif	
 						</div>
 						<div class="col-md-3">
 							{{-- all review show --}}
@@ -323,8 +323,8 @@
 											<span class="fa fa-star "></span>
 											<span> Total {{ $review_1 }} </span>
 										</div>
-
-
+										
+									
 						</div>
 						<div class="col-lg-6">
 							<form action="{{ route('store.review') }}" method="post">
@@ -343,8 +343,8 @@
 							     	<option value="3">3 star</option>
 							     	<option value="5">4 star</option>
 							     	<option value="5">5 star</option>
-							     </select>
-
+							     </select> 
+							     
 							  </div>
 							  @if(Auth::check())
 							  <button type="submit" class="btn btn-sm btn-info"><span class="fa fa-star "></span> submit review</button>
@@ -356,7 +356,7 @@
 					</div>
 						<br>
 
-					{{-- all review of this product --}}
+					{{-- all review of this product --}}	
 						<strong>All review of {{ $product->name }}</strong> <hr>
 					<div class="row">
 						@foreach($review as $row)
@@ -400,7 +400,7 @@
 						 	 </div>
 						 </div>
 					  @endforeach
-					</div>
+					</div>	
 				</div>
 
 
@@ -428,15 +428,15 @@
 				</div>
 
 				<div class="viewed_slider_container">
-
+					
 					<!-- Recently Viewed Slider -->
 
 					<div class="owl-carousel owl-theme viewed_slider">
-					 @foreach($related_product as $row)
+					 @foreach($related_product as $row)		
 						<!-- Recently Viewed Item -->
 						<div class="owl-item">
 							<div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
-								<div class="viewed_image"><img src="{{ asset('files/product/'.$row->thumbnail) }}" alt="{{ $row->name }}"></div>
+								<div class="viewed_image"><img src="{{ asset('public/files/product/'.$row->thumbnail) }}" alt="{{ $row->name }}"></div>
 								<div class="viewed_content text-center">
 								@if($row->discount_price==NULL)
 		             <div class="viewed_price">{{ $setting->currency }}{{ $row->selling_price }}</div>
@@ -444,7 +444,7 @@
 		             <div class="viewed_price">{{ $setting->currency }}{{ $row->discount_price }} <span>{{ $setting->currency }}{{ $row->selling_price }}</span></div>
 		            @endif
 
-
+									
 									<div class="viewed_name"><a href="{{ route('product.details',$row->slug) }}">{{ substr($row->name, 0, 50) }}</a></div>
 								</div>
 								<ul class="item_marks">
@@ -452,7 +452,7 @@
 								</ul>
 							</div>
 						</div>
-					 @endforeach
+					 @endforeach	
 					</div>
 
 				</div>

@@ -41,7 +41,7 @@
                     </thead>
                     <tbody>
 
-
+                   
                     </tbody>
                   </table>
 
@@ -69,8 +69,8 @@
         </button>
       </div>
      <div id="modal_body">
-
-     </div>
+        
+     </div> 
     </div>
   </div>
 </div>
@@ -92,7 +92,7 @@
           <div class="form-group">
             <label for="coupon_code">Pickup Point Name <span class="text-danger">*</span> </label>
             <input type="text" class="form-control"  name="pickup_point_name" required="">
-          </div>
+          </div>     
           <div class="form-group">
             <label for="coupon_amount">Address <span class="text-danger">*</span></label>
             <input type="text" class="form-control"  name="pickup_point_address" required="">
@@ -104,7 +104,7 @@
           <div class="form-group">
             <label for="coupon_amount">Another Phone </label>
             <input type="text" class="form-control"  name="pickup_point_phone_two" >
-          </div>
+          </div>   
       <div class="modal-footer">
         <button type="Submit" class="btn btn-primary"> <span class="loading d-none"> Loading....</span> Submit</button>
       </div>
@@ -128,8 +128,8 @@
 				{data:'DT_RowIndex',name:'DT_RowIndex'},
 				{data:'pickup_point_name'  ,name:'pickup_point_name'},
 				{data:'pickup_point_address',name:'pickup_point_address'},
-				{data:'pickup_point_phone',name:'pickup_point_phone'},
-				{data:'pickup_point_phone_two',name:'pickup_point_phone_two'},
+				{data:'pickup_point_phone',name:'pickup_point_phone'},	
+				{data:'pickup_point_phone_two',name:'pickup_point_phone_two'},	
 				{data:'action',name:'action',orderable:true, searchable:true},
 
 			]
@@ -147,7 +147,7 @@
       type:'post',
       async:false,
       data:request,
-      success:function(data){
+      success:function(data){  
         toastr.success(data);
         $('#add_form')[0].reset();
         $('.loading').addClass('d-none');
@@ -155,7 +155,7 @@
         table.ajax.reload();
       }
     });
-  });
+  }); 
 
   $('body').on('click','.edit', function(){
     let id=$(this).data('id');
@@ -175,7 +175,7 @@
       type:'post',
       async:false,
       data:request,
-      success:function(data){
+      success:function(data){  
         toastr.success(data);
         $('#add_form')[0].reset();
         $('.loading').addClass('d-none');
@@ -184,15 +184,15 @@
       }
     });
   });
+   
 
-
-
-
+	
+  
   $(document).ready(function(){
 	      $(document).on('click', '#delete_coupon',function(e){
             e.preventDefault();
-            var url = $(this).attr('href');
-            $("#deleted_form").attr('action',url);
+            var url = $(this).attr('href'); 
+            $("#deleted_form").attr('action',url); 
             swal({
                 title: "Are you sure?",
                 text: "Once deleted, you will not be able to recover this imaginary file!",

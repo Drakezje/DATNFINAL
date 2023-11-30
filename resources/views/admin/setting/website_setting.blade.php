@@ -38,8 +38,9 @@
                   <div class="form-group">
                     <label for="exampleInputEmail1">Currency</label>
                      <select class="form-control" name="currency">
-                     	 <option value="đ" {{ ($setting->currency == 'đ') ? 'selected': '' }} >VNĐ</option>
-                     	 <option value="$" {{ ($setting->currency == '$') ? 'selected': '' }}>USD</option>
+                     	 <option value="৳" {{ ($setting->currency == '৳') ? 'selected': '' }} >Taka (৳)</option>
+                     	 <option value="$" {{ ($setting->currency == '$') ? 'selected': '' }}>USD ($)</option>
+                       <option value="₹" {{ ($setting->currency == '₹') ? 'selected': '' }}>Rupee (₹)</option>
                      </select>
                   </div>
                   <div class="form-group">
@@ -62,9 +63,9 @@
                     <label for="exampleInputEmail1">Address</label>
                     <input type="text" class="form-control" name="address" value="{{$setting->address}}" >
                   </div>
-
+                 
                   <strong class="text-info">Social Link</strong>
-
+                  
                   <div class="form-group">
                     <label for="exampleInputEmail1">Facebook</label>
                     <input type="text" class="form-control" name="facebook" value="{{$setting->facebook}}" >

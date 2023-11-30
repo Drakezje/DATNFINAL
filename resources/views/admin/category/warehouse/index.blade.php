@@ -40,7 +40,7 @@
                     </thead>
                     <tbody>
 
-
+                  
                     </tbody>
                   </table>
                 </div>
@@ -67,17 +67,17 @@
           <div class="form-group">
             <label for="warehouse_name">Warehouse Name</label>
             <input type="text" class="form-control"  name="warehouse_name" required="" placeholder="Warehouse Name">
-          </div>
+          </div>   
 
           <div class="form-group">
             <label for="warehouse_address">Warehouse Address</label>
             <input type="text" class="form-control"  name="warehouse_address" required="" placeholder="Warehouse Address">
-          </div>
+          </div>   
 
           <div class="form-group">
             <label for="warehouse_phone">Warehouse Phone</label>
             <input type="text" class="form-control"  name="warehouse_phone" required="" placeholder="Warehouse Phone">
-          </div>
+          </div>   
       </div>
       <div class="modal-footer">
         <button type="Submit" class="btn btn-primary"> <span class="d-none loader"><i class="fas fa-spinner"></i> Loading..</span> <span class="submit_btn"> Submit </span> </button>
@@ -98,8 +98,8 @@
         </button>
       </div>
      <div id="modal_body">
-
-     </div>
+     		
+     </div>	
     </div>
   </div>
 </div>

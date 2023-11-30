@@ -26,7 +26,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Thêm sản phẩm</li>
+              <li class="breadcrumb-item active">Add product</li>
             </ol>
           </div>
         </div>
@@ -54,54 +54,54 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Thêm sản phẩm mới</h3>
+                <h3 class="card-title">Add New Product</h3>
               </div>
               <!-- /.card-header -->
                 <div class="card-body">
                   <div class="row">
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Sản phẩm tên <span class="text-danger">*</span> </label>
+                      <label for="exampleInputEmail1">Product Name <span class="text-danger">*</span> </label>
                       <input type="text" class="form-control" name="name" value="{{ old('name') }}"  required="">
                     </div>
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Sản phẩm Code <span class="text-danger">*</span> </label>
+                      <label for="exampleInputPassword1">Product Code <span class="text-danger">*</span> </label>
                       <input type="text" class="form-control" value="{{ old('code') }}" name="code" required="">
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Danh mục/Danh mục phụ <span class="text-danger">*</span> </label>
+                      <label for="exampleInputEmail1">Category/Subcategory <span class="text-danger">*</span> </label>
                       <select class="form-control" name="subcategory_id" id="subcategory_id">
                         <option disabled="" selected="">==choose category==</option>
                         @foreach($category as $row)
-                           @php
+                           @php 
                               $subcategory=DB::table('subcategories')->where('category_id',$row->id)->get();
                            @endphp
                            <option style="color:blue;" disabled="">{{ $row->category_name }}</option>
                               @foreach($subcategory as $row)
                                 <option value="{{ $row->id }}"> -- {{ $row->subcategory_name }}</option>
                               @endforeach
-                        @endforeach
+                        @endforeach 
                       </select>
                     </div>
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Danh mục con<span class="text-danger">*</span> </label>
+                      <label for="exampleInputPassword1">Child category<span class="text-danger">*</span> </label>
                       <select class="form-control" name="childcategory_id" id="childcategory_id">
-
+                         
                       </select>
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Hãng<span class="text-danger">*</span> </label>
+                      <label for="exampleInputEmail1">Brand <span class="text-danger">*</span> </label>
                       <select class="form-control" name="brand_id">
                         @foreach($brand as $row)
                           <option value="{{ $row->id }}">{{ $row->brand_name }}</option>
-                        @endforeach
+                        @endforeach 
                       </select>
                     </div>
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Điểm thưởng</label>
+                      <label for="exampleInputPassword1">Pickup Point</label>
                       <select class="form-control" name="pickup_point_id">
                         @foreach($pickup_point as $row)
                           <option value="{{ $row->id }}">{{ $row->pickup_point_name  }}</option>
@@ -111,7 +111,7 @@
                   </div>
                   <div class="row">
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Đơn vị<span class="text-danger">*</span> </label>
+                      <label for="exampleInputEmail1">Unit <span class="text-danger">*</span> </label>
                       <input type="text" class=form-control name="unit" value="{{ old('unit') }}" required="">
                     </div>
                     <div class="form-group col-lg-6">
@@ -121,54 +121,54 @@
                   </div>
                   <div class="row">
                     <div class="form-group col-lg-4">
-                      <label for="exampleInput">Giá gốc</label>
+                      <label for="exampleInput">Purchase Price  </label>
                       <input type="text" class="form-control" {{ old('purchase_price') }} name="purchase_price">
                     </div>
                     <div class="form-group col-lg-4">
-                      <label for="exampleInput">Giá bán<span class="text-danger">*</span> </label>
+                      <label for="exampleInput">Selling Price <span class="text-danger">*</span> </label>
                       <input type="text" name="selling_price" value="{{ old('selling_price') }}" class="form-control" required="">
                     </div>
                     <div class="form-group col-lg-4">
-                      <label for="exampleInput">Giá giảm</label>
+                      <label for="exampleInput">Discount Price </label>
                       <input type="text" name="discount_price" value="{{ old('discount_price') }}" class="form-control">
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Kho <span class="text-danger">*</span> </label>
+                      <label for="exampleInputEmail1">Warehouse <span class="text-danger">*</span> </label>
                       <select class="form-control" name="warehouse">
                         @foreach($warehosue as $row)
                          <option value="{{ $row->warehouse_name }}">{{ $row->warehouse_name }}</option>
-                        @endforeach
+                        @endforeach 
                       </select>
                     </div>
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Còn hàng</label>
+                      <label for="exampleInputPassword1">Stock</label>
                       <input type="text" name="stock_quantity" value="{{ old('stock_quantity') }}" class="form-control">
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Màu</label><br>
+                      <label for="exampleInputEmail1">Color</label><br>
                       <input type="text" class="form-control" value="{{ old('color') }}" data-role="tagsinput" name="color" />
                     </div>
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Cỡ</label><br>
+                      <label for="exampleInputPassword1">Size</label><br>
                       <input type="text" class="form-control" value="{{ old('size') }}" data-role="tagsinput" name="size"  />
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="form-group col-lg-12">
-                      <label for="exampleInputPassword1">Sản phẩm chi tiết</label>
+                      <label for="exampleInputPassword1">Product Details</label>
                       <textarea class="form-control textarea" name="description">{{ old('description') }}</textarea>
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="form-group col-lg-12">
-                      <label for="exampleInputPassword1">Mã nhúng video</label>
+                      <label for="exampleInputPassword1">Video Embed Code</label>
                       <input class="form-control" name="video" value="{{ old('video') }}" placeholder="Only code after embed word">
                       <small class="text-danger">Only code after embed word</small>
                     </div>
@@ -188,19 +188,19 @@
                     <label for="exampleInputEmail1">Main Thumbnail <span class="text-danger">*</span> </label><br>
                     <input type="file" name="thumbnail" required="" accept="image/*" class="dropify">
                   </div><br>
-                  <div class="">
+                  <div class="">  
                     <table class="table table-bordered" id="dynamic_field">
                     <div class="card-header">
-                      <h3 class="card-title">Thêm ảnh (Click Add For More Image)</h3>
-                    </div>
-                      <tr>
-                          <td><input type="file" accept="image/*" name="images[]" class="form-control name_list" /></td>
-                          <td><button type="button" name="add" id="add" class="btn btn-success">Thêm</button></td>
-                      </tr>
-                    </table>
+                      <h3 class="card-title">More Images (Click Add For More Image)</h3>
+                    </div> 
+                      <tr>  
+                          <td><input type="file" accept="image/*" name="images[]" class="form-control name_list" /></td>  
+                          <td><button type="button" name="add" id="add" class="btn btn-success">Add</button></td>  
+                      </tr>  
+                    </table>    
                   </div>
                      <div class="card p-4">
-                        <h6>Sản phẩm nổi bật</h6>
+                        <h6>Featured Product</h6>
                        <input type="checkbox" name="featured" value="1" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
                      </div>
 
@@ -210,26 +210,26 @@
                      </div>
 
                      <div class="card p-4">
-                        <h6>Slider sản phẩm</h6>
+                        <h6>Slider Product</h6>
                        <input type="checkbox" name="product_slider" value="1"  data-bootstrap-switch data-off-color="danger" data-on-color="success">
                      </div>
 
                      <div class="card p-4">
-                        <h6>Trendy sản phẩm</h6>
+                        <h6>Trendy Product</h6>
                        <input type="checkbox" name="trendy" value="1"  data-bootstrap-switch data-off-color="danger" data-on-color="success">
                      </div>
 
                      <div class="card p-4">
-                        <h6>Trạng thái</h6>
+                        <h6>Status</h6>
                        <input type="checkbox" name="status" value="1" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
                      </div>
-
+                  
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
            </div>
-           <button class="btn btn-info ml-2" type="submit">Thêm</button>
+           <button class="btn btn-info ml-2" type="submit">Submit</button>
          </div>
         </form>
       </div><!-- /.container-fluid -->
@@ -240,7 +240,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
-<script src="{{ asset('backend') }}/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 
 
 <script type="text/javascript">
@@ -267,23 +267,23 @@
 
 
 
-    $(document).ready(function(){
+    $(document).ready(function(){      
        var postURL = "<?php echo url('addmore'); ?>";
-       var i=1;
+       var i=1;  
 
 
-       $('#add').click(function(){
-            i++;
-            $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="file" accept="image/*" name="images[]" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
-       });
+       $('#add').click(function(){  
+            i++;  
+            $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="file" accept="image/*" name="images[]" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
+       });  
 
-       $(document).on('click', '.btn_remove', function(){
-            var button_id = $(this).attr("id");
-            $('#row'+button_id+'').remove();
-       });
-     });
+       $(document).on('click', '.btn_remove', function(){  
+            var button_id = $(this).attr("id");   
+            $('#row'+button_id+'').remove();  
+       });  
+     }); 
 
-
+ 
 
 
 

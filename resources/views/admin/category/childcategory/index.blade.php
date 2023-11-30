@@ -40,7 +40,7 @@
                     </thead>
                     <tbody>
 
-
+                  
                     </tbody>
                   </table>
                 </div>
@@ -68,14 +68,14 @@
             <label for="category_name">Category/Subcategory </label>
             <select class="form-control" name="subcategory_id" required="">
             	@foreach($category as $row)
-                  @php
+                  @php 
                     $subcat=DB::table('subcategories')->where('category_id',$row->id)->get();
                   @endphp
                   <option disabled="" style="color: blue;"
                   >{{ $row->category_name }}</option>
                   @foreach($subcat as $row)
             	        <option value="{{ $row->id }}"> ---- {{ $row->subcategory_name }}</option>
-                  @endforeach
+                  @endforeach    
             	@endforeach
             </select>
           </div>
@@ -83,7 +83,7 @@
             <label for="category_name">Child Category Name</label>
             <input type="text" class="form-control"  name="childcategory_name" required="">
             <small id="emailHelp" class="form-text text-muted">This is your childcategory category</small>
-          </div>
+          </div>   
       </div>
       <div class="modal-footer">
         <button type="Submit" class="btn btn-primary"> <span class="d-none"> loading..... </span>  Submit</button>
@@ -104,8 +104,8 @@
         </button>
       </div>
      <div id="modal_body">
-
-     </div>
+     		
+     </div>	
     </div>
   </div>
 </div>
@@ -118,7 +118,7 @@
 		var table=$('.ytable').DataTable({
 			processing:true,
 			serverSide:true,
-			ajax:"{{route('childcategory.index')}}",
+			ajax:"{{ route('childcategory.index') }}",
 			columns:[
 				{data:'DT_RowIndex',name:'DT_RowIndex'},
 				{data:'childcategory_name'  ,name:'childcategory_name'},

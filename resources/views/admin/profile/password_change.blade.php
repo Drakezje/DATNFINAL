@@ -37,7 +37,7 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Old Password</label>
-                    <input type="password" class="form-control" name="old_password" id="exampleInputPassword1" placeholder="Old Password">
+                    <input type="password" class="form-control" name="old_password" id="exampleInputEmail1" placeholder="Old Password">
                   </div>
 
                   <div class="form-group">
@@ -49,7 +49,7 @@
                         </span>
                     @enderror
                   </div>
-
+                  
 
                   <div class="form-group">
                     <label for="exampleInputPassword3">Confirm Password</label>

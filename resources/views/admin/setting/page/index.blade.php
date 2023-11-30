@@ -39,7 +39,7 @@
                     </thead>
                     <tbody>
 
-                   @foreach($page as $key=>$row)
+                   @foreach($page as $key=>$row) 	
                     <tr>
                       <td>{{ $key+1 }}</td>
                       <td>{{ $row->page_name }}</td>
@@ -49,7 +49,7 @@
                       	<a href="{{route('page.delete',$row->id)}}" class="btn btn-danger btn-sm" id="delete"><i class="fas fa-trash"></i></a>
                       </td>
                     </tr>
-                   @endforeach
+                   @endforeach	
                     </tbody>
                   </table>
                 </div>

@@ -7,8 +7,8 @@
         </div>
         <div class="col-md-8">
         	<div class="card  p-2">
-        	  <div class="row">
-        		<h3 class="ml-4">Phiếu chi tiết</h3>
+        	  <div class="row">	
+        		<h3 class="ml-4">Your Ticket Details</h3>
         		<div class="col-md-9">
         			<strong>Subject: {{  $ticket->subject }}</strong><br>
         			<strong>Service: {{  $ticket->service }}</strong><br>
@@ -22,14 +22,14 @@
         	</div>
 
         	{{-- All reply message show here --}}
-        	@php
+        	@php 
         		$replies=DB::table('replies')->where('ticket_id',$ticket->id)->orderBy('id','DESC')->get();
         	@endphp
 
         	<div class="card p-2 mt-2">
         		<strong>All Reply Message.</strong><br>
         		<div class="card-body" style="height: 450px; overflow-y: scroll;">
-        		@isset($replies)
+        		@isset($replies)	
         		   @foreach($replies as $row)
         			<div class="card mt-1 @if($row->user_id==0) ml-4 @endif">
 					  <div class="card-header @if($row->user_id==0) bg-info @else bg-danger @endif ">
@@ -42,8 +42,8 @@
 					    </blockquote>
 					  </div>
 					</div>
-				  @endforeach
-				@endisset
+				  @endforeach	
+				@endisset	
         		</div>
         	</div>
 

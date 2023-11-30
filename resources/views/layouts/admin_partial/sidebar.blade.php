@@ -1,4 +1,4 @@
-@php
+@php 
   $setting=DB::table('settings')->first();
 @endphp
  <aside class="main-sidebar sidebar-dark-primary elevation-4 slimScrollBar" style="overflow-y: scroll;">
@@ -39,7 +39,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-               Danh mục
+               Category
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -47,31 +47,31 @@
               <li class="nav-item">
                 <a href="{{ route('category.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Danh mục</p>
+                  <p>Category</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('subcategory.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Danh mục phụ</p>
+                  <p>Sub Category</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('childcategory.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Danh mục con</p>
+                  <p>Child Category</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('brand.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Hãng</p>
+                  <p>Brand</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('warehouse.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kho</p>
+                  <p>Warehouse</p>
                 </a>
               </li>
             </ul>
@@ -83,7 +83,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-               Sản phẩm
+               Product
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -91,13 +91,13 @@
               <li class="nav-item">
                 <a href="{{ route('product.create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Thêm sản phẩm</p>
+                  <p>New Product</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('product.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Quản lý sản phẩm</p>
+                  <p>Manage Product</p>
                 </a>
               </li>
             </ul>
@@ -109,7 +109,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-               Quà tặng
+               Offer
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -123,7 +123,7 @@
               <li class="nav-item">
                 <a href="{{ route('campaign.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Khuyến mãi</p>
+                  <p>E Campaign</p>
                 </a>
               </li>
             </ul>
@@ -135,7 +135,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-               Đơn hàng
+               Orders
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -144,14 +144,14 @@
               <li class="nav-item">
                 <a href="{{ route('admin.order.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Các đơn hàng</p>
+                  <p>Orders</p>
                 </a>
               </li>
             </ul>
           </li>
           @endif
 
-
+          
           @if(Auth::user()->blog==1)
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -165,7 +165,7 @@
               <li class="nav-item">
                 <a href="{{ route('admin.blog.category') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Danh mục blog</p>
+                  <p>Category</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -176,14 +176,14 @@
               </li>
             </ul>
           </li>
-          @endif
+          @endif 
 
           @if(Auth::user()->pickup==1)
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-               Điểm thưởng
+               Pickup Point
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -191,19 +191,19 @@
               <li class="nav-item">
                 <a href="{{ route('pickuppoint.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Điểm thưởng</p>
+                  <p>Pickup Point</p>
                 </a>
-              </li>
+              </li>   
             </ul>
           </li>
-          @endif
+          @endif 
 
           @if(Auth::user()->ticket==1)
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-               Phiếu
+               Ticket
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -211,9 +211,9 @@
               <li class="nav-item">
                 <a href="{{ route('ticket.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Phiếu</p>
+                  <p>Ticket</p>
                 </a>
-              </li>
+              </li>   
             </ul>
           </li>
           @endif
@@ -223,7 +223,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-               Tin nhắn liên hệ
+               Contact Message
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -231,9 +231,9 @@
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Tin nhắn liên hệ</p>
+                  <p>Contact Message</p>
                 </a>
-              </li>
+              </li>   
             </ul>
           </li>
           @endif
@@ -243,7 +243,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-               Phản hồi
+               Reports
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -251,33 +251,33 @@
               <li class="nav-item">
                 <a href="{{ route('report.order.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Đơn hàng phản hồi</p>
+                  <p>Order report</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>KH phản hồi</p>
+                  <p>Customer report</p>
+                </a>
+              </li> 
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Stock report </p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Còn hàng phản hồi</p>
+                  <p>Product report </p>
                 </a>
-              </li>
+              </li> 
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Sản phẩm phản hồi</p>
+                  <p>Ticket report </p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Phiếu phàn hồi</p>
-                </a>
-              </li>
+              </li> 
             </ul>
           </li>
           @endif
@@ -287,7 +287,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-               Cài đặt
+               Settings
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -295,31 +295,31 @@
               <li class="nav-item">
                 <a href="{{ route('seo.setting') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>SEO</p>
+                  <p>SEO Setting</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('website.setting') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Cài đặt trang</p>
+                  <p>Website Setting</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('page.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Tạo trang</p>
+                  <p>Page Create</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('smtp.setting') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Cài đặt SMTP</p>
+                  <p>SMTP Setting</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('payment.gateway') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Cổng thanh toán</p>
+                  <p>Payment Gateway</p>
                 </a>
               </li>
             </ul>
@@ -331,7 +331,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-               Quản trị viên
+               User Role
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -339,13 +339,13 @@
               <li class="nav-item">
                 <a href="{{ route('create.role') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Tạo quản trị viên</p>
+                  <p>Create New Role</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('manage.role') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Quản lý quản trị viên</p>
+                  <p>Manage Role</p>
                 </a>
               </li>
             </ul>
@@ -355,20 +355,21 @@
 
 
 
-          <li class="nav-header">Hồ sơ</li>
-
+          <li class="nav-header">PROFILE</li>
+          
           <li class="nav-item">
             <a href="{{ route('admin.password.change') }}" class="nav-link">
               <i class="nav-icon far fa-circle text-info"></i>
-              <p class="text">Đổi mật khẩu</p>
+              <p class="text">Password Change</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('admin.logout') }}" class="nav-link">
               <i class="nav-icon far fa-circle text-danger"></i>
-              <p class="text">Đăng xuất</p>
+              <p class="text">Logout</p>
             </a>
           </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

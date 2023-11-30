@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-
+                        
                         <div class="main_nav_content d-flex flex-row">
 
                             <!-- Categories Menu -->
@@ -12,11 +12,11 @@
                             <div class="cat_menu_container">
                                 <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
                                     <div class="cat_burger"><span></span><span></span><span></span></div>
-                                    <div class="cat_menu_text">Danh mục</div>
+                                    <div class="cat_menu_text">categories</div>
                                 </div>
 
                                 <ul class="cat_menu">
-
+                                    
                                 @foreach($category as $row)
                                   @php
                                     $subcategory=DB::table('subcategories')->where('category_id',$row->id)->get();
@@ -34,14 +34,14 @@
                                                 <a href="{{ route('subcategorywise.product',$row->id) }}">{{ $row->subcategory_name }}<i class="fas fa-chevron-right"></i></a>
                                                 <ul>
                                                     @foreach($childcategory as $row)
-                                                     <li><a href="{{ route('childcategorywise.product',$row->id) }}">{{ $row->childcategory_name }}<i class="fas fa-chevron-right"></i></a></li>
+                                                     <li><a href="{{ route('childcategorywise.product',$row->id) }}">{{ $row->childcategory_name }}<i class="fas fa-chevron-right"></i></a></li> 
                                                     @endforeach
                                                 </ul>
                                             </li>
                                             @endforeach
                                         </ul>
                                     </li>
-                                @endforeach
+                                @endforeach        
                                 </ul>
                             </div>
 
@@ -49,10 +49,10 @@
 
                             <div class="main_nav_menu ml-auto">
                                 <ul class="standard_dropdown main_nav_dropdown">
-                                    <li><a href="{{ url('/') }}">Trang chủ<i class="fas fa-chevron-down"></i></a></li>
-                                    <li><a href="#">Khuyến mãi<i class="fas fa-chevron-down"></i></a></li>
-                                    <li><a href="{{ route('contact') }}">Liên hệ<i class="fas fa-chevron-down"></i></a></li>
-                                    <li><a href="#">Hotline<i class="fas fa-chevron-down"></i></a></li>
+                                    <li><a href="{{ url('/') }}">Home<i class="fas fa-chevron-down"></i></a></li>
+                                    <li><a href="#">Campaign<i class="fas fa-chevron-down"></i></a></li>
+                                    <li><a href="{{ route('contact') }}">Contact<i class="fas fa-chevron-down"></i></a></li>
+                                    <li><a href="#">Helpline<i class="fas fa-chevron-down"></i></a></li>
                                 </ul>
                             </div>
 
@@ -72,15 +72,15 @@
                 </div>
             </div>
         </nav>
-
+        
         <!-- Menu -->
             <div class="page_menu">
             <div class="container">
                 <div class="row">
                     <div class="col">
-
+                        
                         <div class="page_menu_content">
-
+                            
                             <div class="page_menu_search">
                                 <form action="#">
                                     <input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
@@ -101,12 +101,12 @@
                                     <ul class="page_menu_selection">
                                         <li><a href="#">US Dollar<i class="fa fa-angle-down"></i></a></li>
                                         <li><a href="#">EUR Euro<i class="fa fa-angle-down"></i></a></li>
-                                        <li><a href="#">VNĐ VietNamDong<i class="fa fa-angle-down"></i></a></li>
+                                        <li><a href="#">GBP British Pound<i class="fa fa-angle-down"></i></a></li>
                                         <li><a href="#">JPY Japanese Yen<i class="fa fa-angle-down"></i></a></li>
                                     </ul>
                                 </li>
                                 <li class="page_menu_item">
-                                    <a href="#">Trang chủ<i class="fa fa-angle-down"></i></a>
+                                    <a href="#">Home<i class="fa fa-angle-down"></i></a>
                                 </li>
                                 <li class="page_menu_item has-children">
                                     <a href="#">Super Deals<i class="fa fa-angle-down"></i></a>
@@ -127,30 +127,30 @@
                                     </ul>
                                 </li>
                                 <li class="page_menu_item has-children">
-                                    <a href="#">Hãng nổi bật<i class="fa fa-angle-down"></i></a>
+                                    <a href="#">Featured Brands<i class="fa fa-angle-down"></i></a>
                                     <ul class="page_menu_selection">
-                                        <li><a href="#">Hãng nổi bật<i class="fa fa-angle-down"></i></a></li>
+                                        <li><a href="#">Featured Brands<i class="fa fa-angle-down"></i></a></li>
                                         <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
                                         <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
                                         <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
                                     </ul>
                                 </li>
                                 <li class="page_menu_item has-children">
-                                    <a href="#">Trending Sản phẩm<i class="fa fa-angle-down"></i></a>
+                                    <a href="#">Trending Styles<i class="fa fa-angle-down"></i></a>
                                     <ul class="page_menu_selection">
-                                        <li><a href="#">Trending Sản phẩm<i class="fa fa-angle-down"></i></a></li>
+                                        <li><a href="#">Trending Styles<i class="fa fa-angle-down"></i></a></li>
                                         <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
                                         <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
                                         <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
                                     </ul>
                                 </li>
-                                <li class="page_menu_item"><a href="blog.html">Blog<i class="fa fa-angle-down"></i></a></li>
-                                <li class="page_menu_item"><a href="contact.html">Liên hệ<i class="fa fa-angle-down"></i></a></li>
+                                <li class="page_menu_item"><a href="blog.html">blog<i class="fa fa-angle-down"></i></a></li>
+                                <li class="page_menu_item"><a href="contact.html">contact<i class="fa fa-angle-down"></i></a></li>
                             </ul>
-
+                            
                             <div class="menu_contact">
-                                <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/phone_white.png" alt=""></div>+90 000 000</div>
-                                <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/mail_white.png" alt=""></div><a href="mailto:fptpolydatn@gmail.com">fptpolydatn@gmail.com</a></div>
+                                <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/phone_white.png" alt=""></div>+38 068 005 3570</div>
+                                <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                             </div>
                         </div>
                     </div>

@@ -34,11 +34,10 @@ class HomeController extends Controller
 
             return view('home',compact('orders','total_order','complete_order','cancel_order','return_order'));
         }else{
-            return redirect()->back();
+            return redirect()->back(); //chuyển hướng người dùng tới trang trước đó
         }
 
     }
-
     public function logout()
     {
         Auth::logout();

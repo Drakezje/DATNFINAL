@@ -6,8 +6,8 @@
 </head>
 <body>
 
-	<h1>Đơn hàng của bạn đang được giao</h1><br>
-
+	<h1>Your order are progress on recieved .</h1><br>
+	
 
 
 </body>

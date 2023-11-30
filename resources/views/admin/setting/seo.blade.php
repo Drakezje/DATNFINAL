@@ -69,7 +69,7 @@
                     <input type="text" class="form-control" name="alexa_verification" value="{{$data->alexa_verification}}" placeholder="Alexa Verification">
                      <small>Put here only verification code</small>
                   </div>
-
+                  
                   <div class="form-group">
                     <label for="exampleInputEmail1">Google Analytics</label>
                     <textarea class="form-control" name="google_analytics">{{$data->google_analytics}}</textarea>
@@ -79,7 +79,7 @@
                     <textarea class="form-control" name="google_adsense">{{$data->google_adsense}}</textarea>
                   </div>
 
-
+                 
                 </div>
                 <!-- /.card-body -->
 

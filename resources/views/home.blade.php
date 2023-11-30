@@ -9,62 +9,62 @@
             <div class="card">
                 <div class="card-header">
                     {{ __('Dashboard') }}
-                    <a href="{{ route('write.review') }}" style="float:right;"><i class="fas fa-pencil-alt"></i>Viết một đánh giá</a>
+                    <a href="{{ route('write.review') }}" style="float:right;"><i class="fas fa-pencil-alt"></i> Write a review</a>
                 </div>
 
                 <div class="card-body">
                    <div class="row">
                        <div class="col-lg-3">
-                           <a href="">
+                           <a href=""> 
                              <div class="card" >
                                <div class="card-body">
-                                 <h5 class="card-title text-success text-center">Tất cả đơn hàng</h5>
+                                 <h5 class="card-title text-success text-center">Total Order</h5>
                                  <h6 class="card-subtitle mb-2 text-muted text-center">{{ $total_order }}</h6>
                                </div>
                              </div>
                            </a>
                        </div>
                        <div class="col-lg-3">
-                           <a href="">
+                           <a href=""> 
                              <div class="card" >
                                <div class="card-body">
-                                 <h5 class="card-title text-success text-center">Đơn hàng hoàn thành</h5>
+                                 <h5 class="card-title text-success text-center">Complete Order</h5>
                                  <h6 class="card-subtitle mb-2 text-muted text-center">{{ $complete_order }}</h6>
                                </div>
                              </div>
                            </a>
                        </div>
                        <div class="col-lg-3">
-                           <a href="">
+                           <a href=""> 
                              <div class="card" >
                                <div class="card-body">
-                                 <h5 class="card-title text-danger text-center">Đơn hàng đã hủy</h5>
+                                 <h5 class="card-title text-danger text-center">Cancel Order</h5>
                                  <h6 class="card-subtitle mb-2 text-muted text-center">{{ $cancel_order }}</h6>
                                </div>
                              </div>
                            </a>
                        </div>
                        <div class="col-lg-3">
-                          <a href="">
+                          <a href=""> 
                             <div class="card" >
                               <div class="card-body">
-                                <h5 class="card-title text-warning text-center">Đơn hàng trả lại</h5>
+                                <h5 class="card-title text-warning text-center">Return Order</h5>
                                 <h6 class="card-subtitle mb-2 text-muted text-center">{{ $return_order }}</h6>
                               </div>
                             </div>
                           </a>
                        </div>
                    </div><br>
-                   <h4>Đơn hàng gần đây</h4>
+                   <h4>Recent Order</h4>
                    <div>
                        <table class="table">
                          <thead>
                            <tr>
-                             <th scope="col">Mã</th>
-                             <th scope="col">Ngày</th>
-                             <th scope="col">Tất cả</th>
-                             <th scope="col">Dạng thanh toán</th>
-                             <th scope="col">Trạng thái</th>
+                             <th scope="col">OrderId</th>
+                             <th scope="col">Date</th>
+                             <th scope="col">Total</th>
+                             <th scope="col">Payment Type</th>
+                             <th scope="col">Status</th>
                            </tr>
                          </thead>
                          <tbody>
@@ -76,22 +76,21 @@
                              <td>{{ $row->payment_type }}</td>
                              <td>
                               @if($row->status==0)
-                                 <span class="badge badge-danger">Đơn hàng chờ xử lý</span>
+                                 <span class="badge badge-danger">Order Pending</span>
                               @elseif($row->status==1)
-                                 <span class="badge badge-info">Đơn hàng đã nhận</span>
+                                 <span class="badge badge-info">Order Recieved</span>
                               @elseif($row->status==2)
-                                 <span class="badge badge-primary">Đơn hàng đang gửi</span>
+                                 <span class="badge badge-primary">Order Shipped</span>
                               @elseif($row->status==3)
-                                 <span class="badge badge-success">Đơn hàng xong</span>
+                                 <span class="badge badge-success">Order Done</span> 
                               @elseif($row->status==4)
-                                 <span class="badge badge-warning">Đơn hàng trả lại</span>
-                              @elseif($row->status==5)
-                                 <span class="badge badge-danger">Đơn hàng đã hủy</span>
-                              @endif
-
+                                 <span class="badge badge-warning">Order Return</span>   
+                              @elseif($row->status==5)  
+                                 <span class="badge badge-danger">Order Cancel</span>
+                              @endif          
                             </td>
                            </tr>
-                          @endforeach
+                          @endforeach 
                          </tbody>
                        </table>
                    </div>

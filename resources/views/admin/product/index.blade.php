@@ -24,42 +24,42 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Danh sách sản phẩm</h3>
+                <h3 class="card-title">All Product List </h3>
               </div><br>
               <div class="row p-2">
               	<div class="form-group col-3">
-              		<label>Danh mục</label>
+              		<label>Category</label>
               		 <select class="form-control submitable" name="category_id" id="category_id">
               		 	<option value="">All</option>
               		 	  @foreach($category as $row)
               		 	    <option value="{{ $row->id }}">{{ $row->category_name }}</option>
-              		 	  @endforeach
+              		 	  @endforeach  
               		 </select>
               	</div>
               	<div class="form-group col-3">
-              		<label>Hãng</label>
+              		<label>Brand</label>
               		 <select class="form-control submitable" name="brand_id" id="brand_id">
               		 	<option value="">All</option>
               		 	  @foreach($brand as $row)
               		 	    <option value="{{ $row->id }}">{{ $row->brand_name }}</option>
-              		 	  @endforeach
+              		 	  @endforeach  
               		 </select>
               	</div>
               	<div class="form-group col-3">
-              		<label>Kho</label>
+              		<label>warehouses</label>
               		 <select class="form-control submitable" name="warehouse" id="warehouse">
               		 	<option value="">All</option>
               		 	  @foreach($warehouses as $row)
               		 	    <option value="{{ $row->warehouse_name }}">{{ $row->warehouse_name }}</option>
-              		 	  @endforeach
+              		 	  @endforeach  
               		 </select>
               	</div>
               	<div class="form-group col-3">
-              		<label>Trạng thái</label>
+              		<label>Status</label>
               		 <select class="form-control submitable" name="status" id="status">
               		 	<option value="1">All</option>
-              		 	    <option value="1">Kích hoạt</option>
-  							<option value="0">Chưa kích hoạt</option>
+              		 	    <option value="1">Active</option>
+  											<option value="0">Inactive</option>
               		 </select>
               	</div>
               </div>
@@ -70,18 +70,20 @@
                     <tr>
                       <th>SL</th>
                       <th>Thumbnail</th>
-                      <th>Tên</th>
+                      <th>Name</th>
                       <th>Code</th>
-                      <th>Danh mục</th>
-                      <th>Danh mục phụ</th>
-                      <th>Hãng</th>
-                      <th>Nổi bật</th>
+                      <th>Category</th>
+                      <th>Subcategory</th>
+                      <th>Brand</th>
+                      <th>Featured</th>
                       <th>Today Deal</th>
-                      <th>Trạng thái</th>
-                      <th>Hoạt động</th>
+                      <th>Status</th>
+                      <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
+
+                  
                     </tbody>
                   </table>
                 </div>
@@ -103,7 +105,7 @@
       "serverSide":true,
       "searching":true,
       "ajax":{
-        "url": "{{ route('product.index') }}",
+        "url": "{{ route('product.index') }}", 
         "data":function(e) {
           e.category_id =$("#category_id").val();
           e.brand_id =$("#brand_id").val();
@@ -134,7 +136,7 @@
 		$.ajax({
 			url:url,
 			type:'get',
-			success:function(data){
+			success:function(data){  
 	        toastr.success(data);
 	        table.ajax.reload();
 	      }
@@ -148,7 +150,7 @@
 		$.ajax({
 			url:url,
 			type:'get',
-			success:function(data){
+			success:function(data){  
 	        toastr.success(data);
 	        table.ajax.reload();
 	      }
@@ -162,7 +164,7 @@
 		$.ajax({
 			url:url,
 			type:'get',
-			success:function(data){
+			success:function(data){  
 	        toastr.success(data);
 	        table.ajax.reload();
 	      }
@@ -176,7 +178,7 @@
 		$.ajax({
 			url:url,
 			type:'get',
-			success:function(data){
+			success:function(data){  
 	        toastr.success(data);
 	        table.ajax.reload();
 	      }
@@ -190,7 +192,7 @@
 		$.ajax({
 			url:url,
 			type:'get',
-			success:function(data){
+			success:function(data){  
 	        toastr.success(data);
 	        table.ajax.reload();
 	      }
@@ -204,7 +206,7 @@
 		$.ajax({
 			url:url,
 			type:'get',
-			success:function(data){
+			success:function(data){  
 	        toastr.success(data);
 	        table.ajax.reload();
 	      }

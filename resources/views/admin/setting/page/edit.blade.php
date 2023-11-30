@@ -52,7 +52,7 @@
                     <label for="exampleInputPassword2">Page Title</label>
                     <input type="text" class="form-control" name="page_title" id="exampleInputPassword2" value="{{$page->page_title}}">
                   </div>
-
+                  
 
                   <div class="form-group">
                     <label for="exampleInputPassword3">Page Desciption</label>

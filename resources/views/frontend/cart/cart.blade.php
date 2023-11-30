@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/styles/cart_styles.css">
-<link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/styles/cart_responsive.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend') }}/styles/cart_styles.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend') }}/styles/cart_responsive.css">
 @include('layouts.front_partial.collaps_nav')
 
 
@@ -22,9 +22,9 @@
 	 							$sizes=explode(',',$product->size);
 								@endphp
 								<li class="cart_item clearfix">
-
+									
 									<div class="cart_item_image">
-									 	<img src="{{ asset('files/product/'.$row->options->thumbnail) }}" alt="">
+									 	<img src="{{ asset('public/files/product/'.$row->options->thumbnail) }}" alt="">
 									</div>
 									<div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
 										<div class="cart_item_name cart_info_col">
@@ -32,7 +32,7 @@
 										</div>
 										@if($row->options->size !=NULL)
 										<div class="cart_item_color cart_info_col">
-
+											
 											<div class="cart_item_text">
 												<select class="custom-select form-control-sm size" name="size" style="min-width: 100px;" data-id="{{ $row->rowId }}">
       												   @foreach($sizes as $size)
@@ -59,20 +59,20 @@
 										<div class="cart_item_quantity cart_info_col">
 											<div class="cart_item_text">
 												<input type="number" class="form-control-sm qty" name="qty" style="min-width: 70px;" data-id="{{ $row->rowId }}"  value="{{ $row->qty }}" min="1" required="">
-
+												
 										    </div>
 										</div>
 
 										<div class="cart_item_price cart_info_col">
-
+											
 											<div class="cart_item_text">{{ $setting->currency }}{{ $row->price }} x {{$row->qty }}</div>
 										</div>
 										<div class="cart_item_total cart_info_col">
 											<div class="cart_item_text">{{ $setting->currency }} {{ $row->qty*$row->price }}</div>
-
+											
 										</div>
 										<div class="cart_item_total cart_info_col">
-
+											
 											<div class="cart_item_text text-danger">
 												<a href="#" data-id="{{ $row->rowId }}" id="removeProduct"> X</a>
 											</div>
@@ -81,10 +81,10 @@
 								</li>
 								@endforeach
 
-
+								
 							</ul>
 						</div>
-
+						
 
 						<!-- Order Total -->
 						<div class="order_total">

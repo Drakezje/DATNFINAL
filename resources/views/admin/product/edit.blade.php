@@ -21,12 +21,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Cật nhật sản phẩm</h1>
+            <h1>Update Product</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Cật nhật sản phẩm</li>
+              <li class="breadcrumb-item active">Update product</li>
             </ol>
           </div>
         </div>
@@ -55,38 +55,38 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Cật nhật sản phẩm</h3>
+                <h3 class="card-title">Update Product</h3>
               </div>
               <!-- /.card-header -->
                 <div class="card-body">
                   <div class="row">
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Sản phẩm tên <span class="text-danger">*</span> </label>
+                      <label for="exampleInputEmail1">Product Name <span class="text-danger">*</span> </label>
                       <input type="text" class="form-control" name="name" value="{{ $product->name }}"  required="">
                     </div>
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Sản phẩm Code <span class="text-danger">*</span> </label>
+                      <label for="exampleInputPassword1">Product Code <span class="text-danger">*</span> </label>
                       <input type="text" class="form-control" value="{{ $product->code }}" name="code" required="">
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Danh mục/danh mục phụ <span class="text-danger">*</span> </label>
+                      <label for="exampleInputEmail1">Category/Subcategory <span class="text-danger">*</span> </label>
                       <select class="form-control" name="subcategory_id" id="subcategory_id">
                         <option disabled="" selected="">==choose category==</option>
                         @foreach($category as $row)
-                           @php
+                           @php 
                               $subcategory=DB::table('subcategories')->where('category_id',$row->id)->get();
                            @endphp
                            <option style="color:blue;" disabled="">{{ $row->category_name }}</option>
                               @foreach($subcategory as $row)
                                 <option value="{{ $row->id }}" @if($row->id==$product->subcategory_id) selected @endif > -- {{ $row->subcategory_name }}</option>
                               @endforeach
-                        @endforeach
+                        @endforeach 
                       </select>
                     </div>
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Danh mục con<span class="text-danger">*</span> </label>
+                      <label for="exampleInputPassword1">Child category<span class="text-danger">*</span> </label>
                       <select class="form-control" name="childcategory_id" id="childcategory_id">
                          @foreach($childcategory as $child)
                           <option value="{{ $child->id }}"  @if($child->id==$product->childcategory_id) selected @endif>
@@ -98,11 +98,11 @@
                   </div>
                   <div class="row">
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Hãng<span class="text-danger">*</span> </label>
+                      <label for="exampleInputEmail1">Brand <span class="text-danger">*</span> </label>
                       <select class="form-control" name="brand_id">
                         @foreach($brand as $row)
                           <option value="{{ $row->id }}" @if($row->id==$product->brand_id) selected @endif>{{ $row->brand_name }}</option>
-                        @endforeach
+                        @endforeach 
                       </select>
                     </div>
                     <div class="form-group col-lg-6">
@@ -116,7 +116,7 @@
                   </div>
                   <div class="row">
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Đơn vị <span class="text-danger">*</span> </label>
+                      <label for="exampleInputEmail1">Unit <span class="text-danger">*</span> </label>
                       <input type="text" class=form-control name="unit" value="{{ $product->unit }}" required="">
                     </div>
                     <div class="form-group col-lg-6">
@@ -126,54 +126,54 @@
                   </div>
                   <div class="row">
                     <div class="form-group col-lg-4">
-                      <label for="exampleInput">Giá gốc</label>
+                      <label for="exampleInput">Purchase Price  </label>
                       <input type="text" class="form-control" value="{{ $product->purchase_price }}" name="purchase_price">
                     </div>
                     <div class="form-group col-lg-4">
-                      <label for="exampleInput">Giá bán<span class="text-danger">*</span> </label>
+                      <label for="exampleInput">Selling Price <span class="text-danger">*</span> </label>
                       <input type="text" name="selling_price" value="{{ $product->selling_price }}" class="form-control" required="">
                     </div>
                     <div class="form-group col-lg-4">
-                      <label for="exampleInput">Giá giảm</label>
+                      <label for="exampleInput">Discount Price </label>
                       <input type="text" name="discount_price" value="{{ $product->discount_price }} " class="form-control">
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Kho <span class="text-danger">*</span> </label>
+                      <label for="exampleInputEmail1">Warehouse <span class="text-danger">*</span> </label>
                       <select class="form-control" name="warehouse">
                         @foreach($warehouse as $row)
                          <option value="{{ $row->warehouse_name }}">{{ $row->warehouse_name }}</option>
-                        @endforeach
+                        @endforeach 
                       </select>
                     </div>
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Còn hàng</label>
+                      <label for="exampleInputPassword1">Stock</label>
                       <input type="text" name="stock_quantity" value="{{ $product->stock_quantity }}" class="form-control">
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Màu</label><br>
+                      <label for="exampleInputEmail1">Color</label><br>
                       <input type="text" class="form-control" value="{{ $product->color }}" data-role="tagsinput" name="color" />
                     </div>
                     <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Cỡ</label><br>
+                      <label for="exampleInputPassword1">Size</label><br>
                       <input type="text" class="form-control" value="{{ $product->size }}" data-role="tagsinput" name="size"  />
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="form-group col-lg-12">
-                      <label for="exampleInputPassword1">Sản phẩm chi tiết</label>
+                      <label for="exampleInputPassword1">Product Details</label>
                       <textarea class="form-control textarea" name="description">{{ $product->description }}</textarea>
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="form-group col-lg-12">
-                      <label for="exampleInputPassword1">Mã nhũng video</label>
+                      <label for="exampleInputPassword1">Video Embed Code</label>
                       <textarea class="form-control" name="video">{{ $product->video }}</textarea>
                     </div>
                   </div>
@@ -189,20 +189,20 @@
             <div class="card card-primary">
               <div class="card-body">
                   <div class="form-group">
-                    <img src="{{asset('files/product/'.$product->thumbnail)}}" style="height: 50px; width:50px;">
+                    <img src="{{asset('public/files/product/'.$product->thumbnail)}}" style="height: 50px; width:50px;">
                     <label for="exampleInputEmail1">Main Thumbnail <span class="text-danger">*</span> </label><br>
                     <input type="file" name="thumbnail"  accept="image/*" class="dropify">
                     <input type="hidden" name="old_thumbnail" value="{{ $product->thumbnail }}" >
                   </div><br>
-                  <div class="">
+                  <div class="">  
                     <table class="table table-bordered" id="dynamic_field">
                     <div class="card-header">
                       <h3 class="card-title">More Images (Click Add For More Image)</h3>
-                    </div>
-                      <tr>
-                          <td><input type="file" accept="image/*" name="images[]" class="form-control name_list" /></td>
-                          <td><button type="button" name="add" id="add" class="btn btn-success">Add</button></td>
-                      </tr>
+                    </div> 
+                      <tr>  
+                          <td><input type="file" accept="image/*" name="images[]" class="form-control name_list" /></td>   
+                          <td><button type="button" name="add" id="add" class="btn btn-success">Add</button></td>  
+                      </tr>  
                           @php
                              $images = json_decode($product->images,true);
                           @endphp
@@ -211,7 +211,7 @@
                           <div class="row" >
                            @foreach($images as $key => $image)
                              <div class="col-md-4" >
-                                <img alt="" src="{{asset('files/product/'.$image)}}" style="width: 100px; height: 80px; padding: 10px;"/>
+                                <img alt="" src="{{asset('public/files/product/'.$image)}}" style="width: 100px; height: 80px; padding: 10px;"/>
                                 <input type="hidden" name="old_images[]" value="{{ $image }}">
                                 <button type="button" class="remove-files" style="border: none;">X</button>
                              </div>
@@ -219,7 +219,7 @@
                            </div>
                           @endif
 
-                    </table>
+                    </table>    
                   </div>
                      <div class="card p-4">
                         <h6>Featured Product</h6>
@@ -240,7 +240,7 @@
                         <h6>Status</h6>
                        <input type="checkbox" name="status" value="1" @if($product->status==1) checked @endif data-bootstrap-switch data-off-color="danger" data-on-color="success">
                      </div>
-
+                  
               </div>
               <!-- /.card-body -->
             </div>
@@ -257,7 +257,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
-<script src="{{ asset('backend') }}/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script src="{{ asset('public/backend') }}/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 
 
 <script type="text/javascript">
@@ -284,23 +284,23 @@
 
 
 
-    $(document).ready(function(){
+    $(document).ready(function(){      
        var postURL = "<?php echo url('addmore'); ?>";
-       var i=1;
+       var i=1;  
 
 
-       $('#add').click(function(){
-            i++;
-            $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="file" accept="image/*" name="images[]" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
-       });
+       $('#add').click(function(){  
+            i++;  
+            $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="file" accept="image/*" name="images[]" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
+       });  
 
-       $(document).on('click', '.btn_remove', function(){
-            var button_id = $(this).attr("id");
-            $('#row'+button_id+'').remove();
-       });
-     });
+       $(document).on('click', '.btn_remove', function(){  
+            var button_id = $(this).attr("id");   
+            $('#row'+button_id+'').remove();  
+       });  
+     }); 
 
-
+ 
   //edit product imahe remove by cros btn
          $('.remove-files').on('click', function(){
               $(this).parents(".col-md-4").remove();
