@@ -36,7 +36,7 @@ class SettingController extends Controller
         $data['google_analytics']=$request->google_analytics;
         $data['google_adsense']=$request->google_adsense;
         DB::table('seos')->where('id',$id)->update($data);
-        $notification=array('messege' => 'SEO cài đặt được cật nhật!', 'alert-type' => 'success');
+        $notification=array('messege' => 'SEO Setting Updated!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
 
     }
@@ -63,7 +63,7 @@ class SettingController extends Controller
         foreach($request->types as $key=>$type){
             $this->updateEnvFile($type, $request[$type]);
         }
-        $notification=array('messege' => 'SMTP cài đặt được cật nhật!', 'alert-type' => 'success');
+        $notification=array('messege' => 'SMTP Setting Updated!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
 
@@ -109,26 +109,26 @@ class SettingController extends Controller
         $data['instagram']=$request->instagram;
         $data['linkedin']=$request->linkedin;
         $data['youtube']=$request->youtube;
-        if ($request->logo) {  //
+        if ($request->logo) {  //jodi new logo die thake
               $logo=$request->logo;
               $logo_name=uniqid().'.'.$logo->getClientOriginalExtension();
               Image::make($logo)->resize(320,120)->save('files/setting/'.$logo_name);
             $data['logo']='files/setting/'.$logo_name;
-        }else{
+        }else{   //jodi new logo na dey
             $data['logo']=$request->old_logo;
         }
 
-        if ($request->favicon) {  //
+        if ($request->favicon) {  //jodi new logo die thake
               $favicon=$request->favicon;
               $favicon_name=uniqid().'.'.$favicon->getClientOriginalExtension();
               Image::make($favicon)->resize(32,32)->save('files/setting/'.$favicon_name);
               $data['favicon']='files/setting/'.$favicon_name;
-        }else{   //
+        }else{   //jodi new logo na dey
             $data['favicon']=$request->old_favicon;
         }
 
         DB::table('settings')->where('id',$id)->update($data);
-        $notification=array('messege' => 'Trang chủ được cật nhật!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Setting Updated!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
 
 
@@ -151,7 +151,7 @@ class SettingController extends Controller
         $data['signature_key']=$request->signature_key;
         $data['status']=$request->status;
         DB::table('payment_gateway_bd')->where('id',$request->id)->update($data);
-        $notification=array('messege' => 'Cổng thanh toán được cật nhật!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Payment Gateway Update Updated!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
 
@@ -163,7 +163,7 @@ class SettingController extends Controller
         $data['signature_key']=$request->signature_key;
         $data['status']=$request->status;
         DB::table('payment_gateway_bd')->where('id',$request->id)->update($data);
-        $notification=array('messege' => 'Cổng thanh toán được cật nhật!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Payment Gateway Update Updated!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
 

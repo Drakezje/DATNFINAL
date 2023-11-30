@@ -103,7 +103,7 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware' =>'is_admi
 		// Route::post('/update','CampaignController@update')->name('campaign.update');
 	});
 
-	//__order
+	//__order 
 	Route::group(['prefix'=>'order'], function(){
 		Route::get('/','OrderController@index')->name('admin.order.index');
 		// Route::post('/store','CampaignController@store')->name('campaign.store');
@@ -111,7 +111,7 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware' =>'is_admi
 		Route::post('/update/order/status','OrderController@updateStatus')->name('update.order.status');
 		Route::get('/view/admin/{id}','OrderController@ViewOrder');
 		Route::get('/delete/{id}','OrderController@delete')->name('order.delete');
-
+		 
 	});
 
 	//setting Routes
@@ -161,14 +161,14 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware' =>'is_admi
 	    });
 
 
-	    //Ticket
+	    //Ticket 
 		Route::group(['prefix'=>'ticket'], function(){
 			Route::get('/','TicketController@index')->name('ticket.index');
 			Route::get('/ticket/show/{id}','TicketController@show')->name('admin.ticket.show');
 			Route::post('/ticket/reply','TicketController@ReplyTicket')->name('admin.store.reply');
 			Route::get('/ticket/close/{id}','TicketController@CloseTicket')->name('admin.close.ticket');
 			Route::delete('/ticket/delete/{id}','TicketController@destroy')->name('admin.ticket.delete');
-
+			
 	    });
 
 		//Blog category
@@ -194,7 +194,7 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware' =>'is_admi
 	    Route::group(['prefix'=>'report'], function(){
 			Route::get('/order','OrderController@Reportindex')->name('report.order.index');
 			Route::get('/order/print','OrderController@ReportOrderPrint')->name('report.order.print');
-
+			
 		});
 
 	});

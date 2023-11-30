@@ -17,9 +17,9 @@ class CheckoutController extends Controller
     //__checkout page
     public function Checkout()
     {
-        if (!Auth::check()) {
+        if (!Auth::check()) {     
              $notification=array('messege' => 'Login Your Account!', 'alert-type' => 'error');
-             return redirect()->back()->with($notification);
+             return redirect()->back()->with($notification);  
         }
         $content=Cart::content();
         return view('frontend.cart.checkout',compact('content'));
@@ -66,7 +66,7 @@ class CheckoutController extends Controller
     public function OrderPlace(Request $request)
     {
 
-        if ($request->payment_type=="COD") {
+        if ($request->payment_type=="Hand cash") {
             $order=array();
             $order['user_id']=Auth::id();
             $order['c_name']=$request->c_name;
@@ -84,7 +84,7 @@ class CheckoutController extends Controller
                 $order['after_dicount']=Session::get('coupon')['after_discount'];
             }else{
                 $order['subtotal']=Cart::subtotal();
-
+                
             }
             $order['total']=Cart::total();
             $order['payment_type']=$request->payment_type;
@@ -96,7 +96,7 @@ class CheckoutController extends Controller
             $order['month']=date('F');
             $order['year']=date('Y');
 
-
+            
             $order_id=DB::table('orders')->insertGetId($order);
 
 
@@ -125,7 +125,7 @@ class CheckoutController extends Controller
             $notification=array('messege' => 'Successfullt Order Placed!', 'alert-type' => 'success');
             return redirect()->to('/')->with($notification);
 
-          //__aamarpay payment gateway
+          //__aamarpay payment gateway  
         }elseif($request->payment_type=="Aamarpay"){
             $aamarpay=DB::table('payment_gateway_bd')->first();
             if($aamarpay->store_id==NULL){
@@ -157,11 +157,11 @@ class CheckoutController extends Controller
                 'ship_name' => 'ship name', //ship name
                 'ship_add1' => 'House B-121, Road 21',  //ship address
                 'ship_add2' => 'Mohakhali',
-                'ship_city' => 'Dhaka',
+                'ship_city' => 'Dhaka', 
                 'ship_state' => 'Dhaka',
-                'ship_postcode' => '1212',
+                'ship_postcode' => '1212', 
                 'ship_country' => 'Bangladesh',
-                'desc' => 'payment description',
+                'desc' => 'payment description', 
                 'success_url' => route('success'), //your success route
                 'fail_url' => route('fail'), //your fail route
                 'cancel_url' => route('cancel'), //your cancel url
@@ -172,24 +172,24 @@ class CheckoutController extends Controller
                 'signature_key' => $aamarpay->signature_key); //signature key will provided aamarpay, contact integration@aamarpay.com for test/live signature key
 
                 $fields_string = http_build_query($fields);
-
+         
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_VERBOSE, true);
-                curl_setopt($ch, CURLOPT_URL, $url);
-
+                curl_setopt($ch, CURLOPT_URL, $url);  
+          
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                $url_forward = str_replace('"', '', stripslashes(curl_exec($ch)));
-                curl_close($ch);
+                $url_forward = str_replace('"', '', stripslashes(curl_exec($ch)));  
+                curl_close($ch); 
 
                 $this->redirect_to_merchant($url_forward);
             }
-
-
+             
+            
         }
 
-
+   
     }
 
 
@@ -198,17 +198,17 @@ class CheckoutController extends Controller
         ?>
         <html xmlns="http://www.w3.org/1999/xhtml">
           <head><script type="text/javascript">
-            function closethisasap() { document.forms["redirectpost"].submit(); }
+            function closethisasap() { document.forms["redirectpost"].submit(); } 
           </script></head>
           <body onLoad="closethisasap();">
-
+          
             <form name="redirectpost" method="post" action="<?php echo 'https://sandbox.aamarpay.com/'.$url; ?>"></form>
             <!-- for live url https://secure.aamarpay.com -->
           </body>
         </html>
-        <?php
+        <?php   
         exit;
-    }
+    } 
 
 
     //__paymentgateway extra method
@@ -229,7 +229,7 @@ class CheckoutController extends Controller
                 $order['after_dicount']=Session::get('coupon')['after_discount'];
             }else{
                 $order['subtotal']=Cart::subtotal();
-
+                
             }
             $order['total']=Cart::total();
             $order['payment_type']='Aamarpay';

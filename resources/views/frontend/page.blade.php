@@ -15,7 +15,7 @@
 
 	<div class="shop">
 		<div class="container">
-			<div class="row">		
+			<div class="row">
 			  {!! $page->page_description !!}
 			</div>
 		</div>

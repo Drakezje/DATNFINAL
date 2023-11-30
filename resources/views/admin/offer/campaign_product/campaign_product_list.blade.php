@@ -39,18 +39,18 @@
                     </thead>
                     <tbody>
 
-                   @foreach($products as $key=>$row) 
+                   @foreach($products as $key=>$row)
                     <tr>
                       <td>{{ $key+1 }}</td>
                       <td>{{ $row->name }}</td>
-                      <td><img src="{{ asset('public/files/product/'.$row->thumbnail) }}" height="32" width="32"></td>
+                      <td><img src="{{ asset('files/product/'.$row->thumbnail) }}" height="32" width="32"></td>
                       <td>{{ $row->code }}</td>
                       <td>{{ $row->price }}</td>
                       <td>
                       	<a href="{{ route('product.remove.campaign',$row->id) }}" id="delete" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                       </td>
                     </tr>
-                   @endforeach	
+                   @endforeach
                     </tbody>
                   </table>
                 </div>

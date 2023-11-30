@@ -25,7 +25,7 @@ class AdminController extends Controller
     public function logout()
     {
     	Auth::logout();
-    	$notification=array('messege' => 'Bạn đã đăng nhập!', 'alert-type' => 'success');
+    	$notification=array('messege' => 'You are logged out!', 'alert-type' => 'success');
     	return redirect()->route('admin.login')->with($notification);
     }
 
@@ -52,10 +52,10 @@ class AdminController extends Controller
                $user->password=Hash::make($request->password); //current user password hasing
                $user->save();  //finally save the password
                Auth::logout();  //logout the admin user anmd redirect admin login panel not user login panel
-               $notification=array('messege' => 'Mật khẩu được cật nhật!', 'alert-type' => 'success');
+               $notification=array('messege' => 'Your Password Changed!', 'alert-type' => 'success');
                return redirect()->route('admin.login')->with($notification);
         }else{
-            $notification=array('messege' => 'Mật khẩu không khớp!', 'alert-type' => 'error');
+            $notification=array('messege' => 'Old Password Not Matched!', 'alert-type' => 'error');
             return redirect()->back()->with($notification);
         }
     }

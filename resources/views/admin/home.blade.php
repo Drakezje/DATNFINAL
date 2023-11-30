@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('admin_content')
-@php 
+@php
   $customers=DB::table('users')->where('is_admin','0')->orWhere('is_admin',NULL)->orderBy('id','DESC')->limit(8)->get();
   $latest_order=DB::table('orders')->orderBy('id','DESC')->limit(8)->get();
   $most_views=DB::table('products')->orderBy('product_views','DESC')->where('status',1)->limit(8)->get();
@@ -238,7 +238,7 @@
             <!-- /.card -->
             <div class="row">
               <div class="col-md-6">
-                
+
               </div>
               <!-- /.col -->
 
@@ -331,14 +331,14 @@
                               @elseif($order->status==2)
                                  <span class="badge badge-primary">Order Shipped</span>
                               @elseif($order->status==3)
-                                 <span class="badge badge-success">Order Done</span> 
+                                 <span class="badge badge-success">Order Done</span>
                               @elseif($order->status==4)
-                                 <span class="badge badge-warning">Order Return</span>   
-                              @elseif($order->status==5)  
+                                 <span class="badge badge-warning">Order Return</span>
+                              @elseif($order->status==5)
                                  <span class="badge badge-danger">Order Cancel</span>
-                              @endif  
+                              @endif
                       </td>
-                     
+
                     </tr>
                     @endforeach
                     </tbody>
@@ -413,7 +413,7 @@
                   @foreach($most_views as $row)
                   <li class="item">
                     <div class="product-img">
-                      <img src="{{ asset('public/files/product/'.$row->thumbnail) }}" alt="Product Image" class="img-size-50">
+                      <img src="{{ asset('files/product/'.$row->thumbnail) }}" alt="Product Image" class="img-size-50">
                     </div>
                     <div class="product-info">
                       <a href="javascript:void(0)" class="product-title"> {{ $row->product_views }} time view
@@ -424,7 +424,7 @@
                     </div>
                   </li>
                   @endforeach
-                
+
                 </ul>
               </div>
               <!-- /.card-body -->

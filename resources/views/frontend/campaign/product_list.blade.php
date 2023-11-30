@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend') }}/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend') }}/styles/shop_styles.css">
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend') }}/styles/shop_responsive.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/styles/shop_styles.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/styles/shop_responsive.css">
 @include('layouts.front_partial.collaps_nav')
 
 	<div class="home">
-		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('public/frontend') }}/images/shop_background.jpg"></div>
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('frontend') }}/images/shop_background.jpg"></div>
 		<div class="home_overlay"></div>
 		<div class="home_content d-flex flex-column align-items-center justify-content-center">
 			<h2 class="home_title">Campaign Products</h2>
@@ -17,7 +17,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					
+
 					<!-- Shop Content -->
 
 					<div class="shop_content">
@@ -44,7 +44,7 @@
 							@foreach($products as $row)
 								<div class="product_item is_new col-lg-2">
 									<div class="product_border"></div>
-									<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('public/files/product/'.$row->thumbnail) }}" alt=""></div>
+									<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('files/product/'.$row->thumbnail) }}" alt=""></div>
 									<div class="product_content pt-2">
 										<div class="product_price">{{ $setting->currency }}{{ $row->price }}</div>
 										<div class="product_name"><div><a href="{{ route('campaign.product.details',$row->slug) }}" tabindex="0">{{ $row->name }}</a></div></div>
@@ -71,7 +71,7 @@
 		</div>
 	</div>
 
-<script src="{{ asset('public/frontend') }}/js/shop_custom.js"></script>
+<script src="{{ asset('frontend') }}/js/shop_custom.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 

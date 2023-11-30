@@ -51,7 +51,7 @@ class CategoryController extends Controller
                 'icon'=> 'files/category/'.$photoname,
         	]);
 
-    	$notification=array('messege' => 'Danh mục được tạo!', 'alert-type' => 'success');
+    	$notification=array('messege' => 'Category Inserted!', 'alert-type' => 'success');
     	return redirect()->back()->with($notification);
     }
 
@@ -89,12 +89,12 @@ class CategoryController extends Controller
               Image::make($photo)->resize(32,32)->save('files/category/'.$photoname);
               $data['icon']='files/category/'.$photoname;
               DB::table('categories')->where('id',$request->id)->update($data);
-              $notification=array('messege' => 'Danh mục được cật nhật!', 'alert-type' => 'success');
+              $notification=array('messege' => 'Category Update!', 'alert-type' => 'success');
               return redirect()->back()->with($notification);
         }else{
           $data['icon']=$request->old_icon;
           DB::table('categories')->where('id',$request->id)->update($data);
-          $notification=array('messege' => 'Danh mục được cật nhật!', 'alert-type' => 'success');
+          $notification=array('messege' => 'Category Update!', 'alert-type' => 'success');
           return redirect()->back()->with($notification);
         }
     }
@@ -109,7 +109,7 @@ class CategoryController extends Controller
     	$category=Category::find($id);
     	$category->delete();
 
-    	$notification=array('messege' => 'Danh mục được xóa!', 'alert-type' => 'success');
+    	$notification=array('messege' => 'Category Deleted!', 'alert-type' => 'success');
     	return redirect()->back()->with($notification);
     }
 

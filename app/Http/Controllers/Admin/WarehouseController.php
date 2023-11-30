@@ -24,10 +24,10 @@ class WarehouseController extends Controller
                         $actionbtn='<a href="#" class="btn btn-info btn-sm edit" data-id="'.$row->id.'" data-toggle="modal" data-target="#editModal" ><i class="fas fa-edit"></i></a>
                         <a href="'.route('warehouse.delete',[$row->id]).'" class="btn btn-danger btn-sm" id="delete"><i class="fas fa-trash"></i>
                         </a>';
-                       return $actionbtn;
+                       return $actionbtn;   
                     })
                     ->rawColumns(['action'])
-                    ->make(true);
+                    ->make(true);       
         }
         return view('admin.category.warehouse.index');
     }
@@ -44,7 +44,7 @@ class WarehouseController extends Controller
         $data['warehouse_address']=$request->warehouse_address;
         $data['warehouse_phone']=$request->warehouse_phone;
         DB::table('warehouses')->insert($data);
-        $notification=array('messege' => 'Kho được thêm!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Warehouse Added!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
 
@@ -52,7 +52,7 @@ class WarehouseController extends Controller
     public function destroy($id)
     {
         DB::table('warehouses')->where('id',$id)->delete();
-        $notification=array('messege' => 'Kho được xóa!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Warehouse Added!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
 
     }
@@ -70,7 +70,7 @@ class WarehouseController extends Controller
         $data['warehouse_address']=$request->warehouse_address;
         $data['warehouse_phone']=$request->warehouse_phone;
         DB::table('warehouses')->where('id',$request->id)->update($data);
-        $notification=array('messege' => 'Kho được cật nhật!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Warehouse Updated!', 'alert-type' => 'success');
         return redirect()->route('warehouse.index')->with($notification);
     }
 }

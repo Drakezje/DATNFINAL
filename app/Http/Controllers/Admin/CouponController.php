@@ -25,16 +25,16 @@ class CouponController extends Controller
                         $actionbtn='<a href="#" class="btn btn-info btn-sm edit" data-id="'.$row->id.'" data-toggle="modal" data-target="#editModal" ><i class="fas fa-edit"></i></a>
                         <a href="'.route('coupon.delete',[$row->id]).'"  class="btn btn-danger btn-sm" id="delete_coupon"><i class="fas fa-trash"></i>
                         </a>';
-                       return $actionbtn;
+                       return $actionbtn;   
                     })
                     ->rawColumns(['action'])
-                    ->make(true);
+                    ->make(true);       
         }
 
         return view('admin.offer.coupon.index');
     }
 
-    //store coupon
+    //store coupon 
     public function store(Request $request)
     {
          $data=array(
@@ -45,7 +45,7 @@ class CouponController extends Controller
             'status' =>$request->status,
          );
          DB::table('coupons')->insert($data);
-         return response()->json('Mã giảm giá được tạo!');
+         return response()->json('Coupon Store!');
 
     }
 
@@ -67,7 +67,7 @@ class CouponController extends Controller
             'status' =>$request->status,
         );
         DB::table('coupons')->where('id',$request->id)->update($data);
-        return response()->json('Mã giảm giá được cật nhật!');
+        return response()->json('Coupon Updated!');
     }
 
     // delete coupon
@@ -75,8 +75,8 @@ class CouponController extends Controller
     public function destroy($id)
     {
         DB::table('coupons')->where('id',$id)->delete();
-        return response()->json('Mã giảm giá được xóa!');
+        return response()->json('Coupon deleted!');
     }
 
-
+    
 }

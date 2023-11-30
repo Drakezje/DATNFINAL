@@ -174,7 +174,7 @@ class ProductController extends Controller
            $data['images'] = json_encode($images);
        }
        DB::table('products')->insert($data);
-       $notification=array('messege' => 'Sản phẩm được thêm!', 'alert-type' => 'success');
+       $notification=array('messege' => 'Product Inserted!', 'alert-type' => 'success');
        return redirect()->back()->with($notification);
 
     }
@@ -272,7 +272,7 @@ class ProductController extends Controller
 
 
        DB::table('products')->where('id',$request->id)->update($data);
-       $notification=array('messege' => 'Sản phẩm được cật nhật!', 'alert-type' => 'success');
+       $notification=array('messege' => 'Product Updated!', 'alert-type' => 'success');
        return redirect()->back()->with($notification);
     }
 
@@ -280,42 +280,42 @@ class ProductController extends Controller
     public function notfeatured($id)
     {
         DB::table('products')->where('id',$id)->update(['featured'=>0]);
-        return response()->json('Sản phẩm nổi bật chưa kích hoạt');
+        return response()->json('Product Not Featured');
     }
 
     //active featured
     public function activefeatured($id)
     {
         DB::table('products')->where('id',$id)->update(['featured'=>1]);
-        return response()->json('Sản phẩm nổi bật được kích hoạt');
+        return response()->json('Product Featured Activated');
     }
 
     //not Deal
     public function notdeal($id)
     {
         DB::table('products')->where('id',$id)->update(['today_deal'=>0]);
-        return response()->json('Sản phẩm deal chưa được kích hoạt');
+        return response()->json('Product Not Today deal');
     }
 
     //active Deal
     public function activedeal($id)
     {
         DB::table('products')->where('id',$id)->update(['today_deal'=>1]);
-        return response()->json('Sản phẩm deal được kích hoạt');
+        return response()->json('Product today deal Activated');
     }
 
     //not status
     public function notstatus($id)
     {
         DB::table('products')->where('id',$id)->update(['status'=>0]);
-        return response()->json('Sản phẩm chưa kích hoạt');
+        return response()->json('Product Deactive');
     }
 
     //active staus
     public function activestatus($id)
     {
         DB::table('products')->where('id',$id)->update(['status'=>1]);
-        return response()->json('Sản phẩm được kích hoạt');
+        return response()->json('Product Activated');
     }
 
     //product delete
@@ -337,7 +337,7 @@ class ProductController extends Controller
         }
 
         DB::table('products')->where('id',$id)->delete();
-       $notification=array('messege' => 'Sản phẩm được xóa!', 'alert-type' => 'success');
+       $notification=array('messege' => 'Product Deleted!', 'alert-type' => 'success');
        return redirect()->back()->with($notification);
     }
 

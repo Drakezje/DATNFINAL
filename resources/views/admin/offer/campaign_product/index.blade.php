@@ -42,14 +42,14 @@
                     </thead>
                     <tbody>
 
-                   @foreach($products as $key=>$row) 
-                   @php 
+                   @foreach($products as $key=>$row)
+                   @php
                      $exist=DB::table('campaign_product')->where('campaign_id',$campaign_id)->where('product_id',$row->id)->first();
-                   @endphp	
+                   @endphp
                     <tr>
                       <td>{{ $key+1 }}</td>
                       <td>{{ $row->name }}</td>
-                      <td><img src="{{ asset('public/files/product/'.$row->thumbnail) }}" height="32" width="32"></td>
+                      <td><img src="{{ asset('files/product/'.$row->thumbnail) }}" height="32" width="32"></td>
                       <td>{{ $row->code }}</td>
                       <td>{{ $row->category_name }}</td>
                       <td>{{ $row->brand_name }}</td>
@@ -61,7 +61,7 @@
                       	@endif
                       </td>
                     </tr>
-                   @endforeach	
+                   @endforeach
                     </tbody>
                   </table>
                 </div>

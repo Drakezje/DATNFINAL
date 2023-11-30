@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 	<div class="home">
-		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('public/frontend') }}/images/shop_background.jpg"></div>
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('frontend') }}/images/shop_background.jpg"></div>
 		<div class="home_overlay"></div>
 		<div class="home_content d-flex flex-column align-items-center justify-content-center">
 			<h2 class="home_title">Order Tracking</h2>
@@ -14,9 +14,9 @@
 		        <div class="col-md-4">
 		            <div class="card">
 		            	<div class="card-body mt-2">
-		                	Name: {{ $order->c_name }} <br>	
-		                	Phone: {{ $order->c_phone }} <br>	
-		                	OrderID: {{ $order->order_id }} <br>	
+		                	Name: {{ $order->c_name }} <br>
+		                	Phone: {{ $order->c_phone }} <br>
+		                	OrderID: {{ $order->order_id }} <br>
 		                	Status:   @if($order->status==0)
 		                                 <span class="badge badge-danger">Order Pending</span>
 		                              @elseif($order->status==1)
@@ -24,14 +24,14 @@
 		                              @elseif($order->status==2)
 		                                 <span class="badge badge-primary">Order Shipped</span>
 		                              @elseif($order->status==3)
-		                                 <span class="badge badge-success">Order Done</span> 
+		                                 <span class="badge badge-success">Order Done</span>
 		                              @elseif($order->status==4)
-		                                 <span class="badge badge-warning">Order Return</span>   
-		                              @elseif($order->status==5)  
+		                                 <span class="badge badge-warning">Order Return</span>
+		                              @elseif($order->status==5)
 		                                 <span class="badge badge-danger">Order Cancel</span>
-		                              @endif <br>	
-		                	Date: {{ date('d F Y'),strtotime($order->c_name)}} <br>	
-		                	Subtotal: {{ $order->subtotal }} {{ $setting->currency }}<br>	
+		                              @endif <br>
+		                	Date: {{ date('d F Y'),strtotime($order->c_name)}} <br>
+		                	Subtotal: {{ $order->subtotal }} {{ $setting->currency }}<br>
 		                	Total: {{ $order->total }} {{ $setting->currency }}<br>
 
 		                </div>
@@ -42,7 +42,7 @@
 		                <div class="card-header">
 		                    My Order
 		                </div>
-		                
+
 		                <div class="card-body">
 		                   <div>
 		                       <table class="table">
@@ -68,13 +68,13 @@
 		                             <td>{{ $row->single_price }} {{ $setting->currency }}</td>
 		                             <td>{{ $row->subtotal_price }} {{ $setting->currency }}</td>
 		                           </tr>
-		                          @endforeach 
+		                          @endforeach
 		                         </tbody>
 		                       </table>
 		                   </div>
 		                </div>
 
-		                
+
 
 		            </div>
 		        </div>

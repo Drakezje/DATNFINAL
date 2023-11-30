@@ -28,11 +28,11 @@ class ChildcategoryController extends Controller
                       	<a href="'.route('childcategory.delete',[$row->id]).'" class="btn btn-danger btn-sm" id="delete"><i class="fas fa-trash"></i>
                       	</a>';
 
-                       return $actionbtn;
+                       return $actionbtn; 	
 
     				})
     				->rawColumns(['action'])
-    				->make(true);
+    				->make(true);		
     	}
 
         $category=DB::table('categories')->get();
@@ -50,14 +50,14 @@ class ChildcategoryController extends Controller
        $data['childcategory_slug']=Str::slug($request->childcategory_name, '-');
        $data['childcategory_name']=$request->childcategory_name;
        DB::table('childcategories')->insert($data);
-       $notification=array('messege' => 'Danh mục con được thêm!', 'alert-type' => 'success');
+       $notification=array('messege' => 'Child-Category Inserted!', 'alert-type' => 'success');
        return redirect()->back()->with($notification);
     }
 
     public function destroy($id)
     {
         DB::table('childcategories')->where('id',$id)->delete();
-        $notification=array('messege' => 'Danh mục con được xóa!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Child-Category Deleted!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
 
     }
@@ -79,7 +79,7 @@ class ChildcategoryController extends Controller
        $data['childcategory_slug']=Str::slug($request->childcategory_name, '-');
        $data['childcategory_name']=$request->childcategory_name;
        DB::table('childcategories')->where('id',$request->id)->update($data);
-       $notification=array('messege' => 'Danh mục con được cật nhật!', 'alert-type' => 'success');
+       $notification=array('messege' => 'Child-Category Updated!', 'alert-type' => 'success');
        return redirect()->back()->with($notification);
     }
 

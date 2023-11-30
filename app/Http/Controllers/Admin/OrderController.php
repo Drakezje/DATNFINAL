@@ -57,17 +57,17 @@ class OrderController extends Controller
                     ->addIndexColumn()
                     ->editColumn('status',function($row){
                         if ($row->status==0) {
-                            return '<span class="badge badge-danger">Chưa xử lý</span>';
+                            return '<span class="badge badge-danger">Pending</span>';
                         }elseif($row->status==1){
-                            return '<span class="badge badge-primary">Đã xử lý</span>';
+                            return '<span class="badge badge-primary">Recieved</span>';
                         }elseif($row->status==2){
-                            return '<span class="badge badge-info">Được giao</span>';
+                            return '<span class="badge badge-info">Shipped</span>';
                         }elseif($row->status==3){
-                            return '<span class="badge badge-success">Đã hoàn thành</span>';
+                            return '<span class="badge badge-success">Completed</span>';
                         }elseif($row->status==4){
-                            return '<span class="badge badge-warning">Trả về</span>';
+                            return '<span class="badge badge-warning">Return</span>';
                         }elseif($row->status==5){
-                            return '<span class="badge badge-danger">Hủy</span>';
+                            return '<span class="badge badge-danger">Cancel</span>';
                         }
                     })
                     ->addColumn('action', function($row){
@@ -108,7 +108,7 @@ class OrderController extends Controller
         }
 
         DB::table('orders')->where('id',$request->id)->update($data);
-        return response()->json('Thay đổi trạng thái thành công!');
+        return response()->json('successfully cjanged status!');
     }
 
 
@@ -125,7 +125,7 @@ class OrderController extends Controller
     {
        $order=DB::table('orders')->where('id',$id)->delete();
        $order_details=DB::table('order_details')->where('order_id',$id)->delete();
-       $notification=array('messege' => 'Đơn hàng đã xóa!', 'alert-type' => 'success');
+       $notification=array('messege' => 'Order deleted!', 'alert-type' => 'success');
        return redirect()->back()->with($notification);
     }
 
@@ -171,19 +171,18 @@ class OrderController extends Controller
                     ->addIndexColumn()
                     ->editColumn('status',function($row){
                         if ($row->status==0) {
-                            return '<span class="badge badge-danger">Chưa xử lý</span>';
+                            return '<span class="badge badge-danger">Pending</span>';
                         }elseif($row->status==1){
-                            return '<span class="badge badge-primary">Đã xử lý</span>';
+                            return '<span class="badge badge-primary">Recieved</span>';
                         }elseif($row->status==2){
-                            return '<span class="badge badge-info">Được giao</span>';
+                            return '<span class="badge badge-info">Shipped</span>';
                         }elseif($row->status==3){
-                            return '<span class="badge badge-success">Đã hoàn thành</span>';
+                            return '<span class="badge badge-success">Completed</span>';
                         }elseif($row->status==4){
-                            return '<span class="badge badge-warning">Trả về</span>';
+                            return '<span class="badge badge-warning">Return</span>';
                         }elseif($row->status==5){
-                            return '<span class="badge badge-danger">Hủy</span>';
+                            return '<span class="badge badge-danger">Cancel</span>';
                         }
-
                     })
                     ->rawColumns(['status'])
                     ->make(true);

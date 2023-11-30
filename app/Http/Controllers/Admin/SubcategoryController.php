@@ -26,9 +26,9 @@ class SubcategoryController extends Controller
 
     	     //Eloquent ORM
     	$data=Subcategory::all();
-    	$category=Category::all();
-    	//$category=DB::table('categories')->get();
-    	 return view('admin.category.subcategory.index',compact('data','category'));
+    	$category=Category::all();  
+    	//$category=DB::table('categories')->get();  
+    	 return view('admin.category.subcategory.index',compact('data','category'));     
     }
 
 
@@ -54,7 +54,7 @@ class SubcategoryController extends Controller
     	]);
 
 
-    	$notification=array('messege' => 'Danh mục phụ được thêm!', 'alert-type' => 'success');
+    	$notification=array('messege' => 'Subcategory Inserted!', 'alert-type' => 'success');
     	return redirect()->back()->with($notification);
 
 
@@ -68,7 +68,7 @@ class SubcategoryController extends Controller
     	$subcat=Subcategory::find($id);
     	$subcat->delete();
 
-    	$notification=array('messege' => 'Danh mục phụ được xóa!', 'alert-type' => 'success');
+    	$notification=array('messege' => 'Subategory Deleted!', 'alert-type' => 'success');
     	return redirect()->back()->with($notification);
 
     }
@@ -106,7 +106,7 @@ class SubcategoryController extends Controller
     	// $data['subcat_slug']=Str::slug($request->subcategory_name, '-');
     	// DB::table('subcategories')->where('id',$request->id)->update($data);
 
-       $notification=array('messege' => 'Danh mục phụ được cật nhật!', 'alert-type' => 'success');
+       $notification=array('messege' => 'Subategory Updated!', 'alert-type' => 'success');
     	return redirect()->back()->with($notification);
     }
 

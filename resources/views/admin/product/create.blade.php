@@ -74,20 +74,20 @@
                       <select class="form-control" name="subcategory_id" id="subcategory_id">
                         <option disabled="" selected="">==choose category==</option>
                         @foreach($category as $row)
-                           @php 
+                           @php
                               $subcategory=DB::table('subcategories')->where('category_id',$row->id)->get();
                            @endphp
                            <option style="color:blue;" disabled="">{{ $row->category_name }}</option>
                               @foreach($subcategory as $row)
                                 <option value="{{ $row->id }}"> -- {{ $row->subcategory_name }}</option>
                               @endforeach
-                        @endforeach 
+                        @endforeach
                       </select>
                     </div>
                     <div class="form-group col-lg-6">
                       <label for="exampleInputPassword1">Child category<span class="text-danger">*</span> </label>
                       <select class="form-control" name="childcategory_id" id="childcategory_id">
-                         
+
                       </select>
                     </div>
                   </div>
@@ -97,7 +97,7 @@
                       <select class="form-control" name="brand_id">
                         @foreach($brand as $row)
                           <option value="{{ $row->id }}">{{ $row->brand_name }}</option>
-                        @endforeach 
+                        @endforeach
                       </select>
                     </div>
                     <div class="form-group col-lg-6">
@@ -139,7 +139,7 @@
                       <select class="form-control" name="warehouse">
                         @foreach($warehosue as $row)
                          <option value="{{ $row->warehouse_name }}">{{ $row->warehouse_name }}</option>
-                        @endforeach 
+                        @endforeach
                       </select>
                     </div>
                     <div class="form-group col-lg-6">
@@ -188,16 +188,16 @@
                     <label for="exampleInputEmail1">Main Thumbnail <span class="text-danger">*</span> </label><br>
                     <input type="file" name="thumbnail" required="" accept="image/*" class="dropify">
                   </div><br>
-                  <div class="">  
+                  <div class="">
                     <table class="table table-bordered" id="dynamic_field">
                     <div class="card-header">
                       <h3 class="card-title">More Images (Click Add For More Image)</h3>
-                    </div> 
-                      <tr>  
-                          <td><input type="file" accept="image/*" name="images[]" class="form-control name_list" /></td>  
-                          <td><button type="button" name="add" id="add" class="btn btn-success">Add</button></td>  
-                      </tr>  
-                    </table>    
+                    </div>
+                      <tr>
+                          <td><input type="file" accept="image/*" name="images[]" class="form-control name_list" /></td>
+                          <td><button type="button" name="add" id="add" class="btn btn-success">Add</button></td>
+                      </tr>
+                    </table>
                   </div>
                      <div class="card p-4">
                         <h6>Featured Product</h6>
@@ -223,7 +223,7 @@
                         <h6>Status</h6>
                        <input type="checkbox" name="status" value="1" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
                      </div>
-                  
+
               </div>
               <!-- /.card-body -->
             </div>
@@ -240,7 +240,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
-<script src="{{ asset('public/backend') }}/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script src="{{ asset('backend') }}/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 
 
 <script type="text/javascript">
@@ -267,23 +267,23 @@
 
 
 
-    $(document).ready(function(){      
+    $(document).ready(function(){
        var postURL = "<?php echo url('addmore'); ?>";
-       var i=1;  
+       var i=1;
 
 
-       $('#add').click(function(){  
-            i++;  
-            $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="file" accept="image/*" name="images[]" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
-       });  
+       $('#add').click(function(){
+            i++;
+            $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="file" accept="image/*" name="images[]" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+       });
 
-       $(document).on('click', '.btn_remove', function(){  
-            var button_id = $(this).attr("id");   
-            $('#row'+button_id+'').remove();  
-       });  
-     }); 
+       $(document).on('click', '.btn_remove', function(){
+            var button_id = $(this).attr("id");
+            $('#row'+button_id+'').remove();
+       });
+     });
 
- 
+
 
 
 

@@ -22,7 +22,7 @@ class BlogController extends Controller
     {
         $data=DB::table('blog_category')->get();  //query builder
         return view('admin.blog.category',compact('data'));
-
+        
     }
 
     //store category
@@ -37,15 +37,15 @@ class BlogController extends Controller
         $data['category_name']=$request->category_name;
         $data['category_slug']=Str::slug($request->category_name, '-');
         DB::table('blog_category')->insert($data);
-
-        $notification=array('messege' => 'Danh mục được tạo!', 'alert-type' => 'success');
+         
+        $notification=array('messege' => 'Category Inserted!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
 
     public function destroy($id)
     {
         DB::table('blog_category')->where('id',$id)->delete();
-        $notification=array('messege' => 'Danh mục được xóa!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Category Deleted!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
 
@@ -62,7 +62,7 @@ class BlogController extends Controller
         $data['category_name']=$request->category_name;
         $data['category_slug']=Str::slug($request->category_name, '-');
         DB::table('blog_category')->where('id',$request->id)->update($data);
-        $notification=array('messege' => 'Danh mục được cật nhật!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Category Deleted!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
 }

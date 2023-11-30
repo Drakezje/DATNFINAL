@@ -38,7 +38,7 @@
             <div class="row">
               <div class="col-lg-4">
                 <div class="">
-                    <img src="{{ asset('public/files/product/'.$product->thumbnail) }}" height="100%" width="100%">
+                    <img src="{{ asset('files/product/'.$product->thumbnail) }}" height="100%" width="100%">
                 </div>
               </div>
               <div class="col-lg-8 ">
@@ -89,7 +89,7 @@
                                     	</select>
                                     </div>
                                     @endisset
-                                    
+
                                 </div>
                                 <div class="col-lg-4" style="margin-left: -5px;">
                                   <label>Quantity: </label>
@@ -108,13 +108,13 @@
                               </div>
                             </div>
                         </div>
-                        
+
                     </form>
                  </div>
               </div>
             </div>
           </div>
-        </div> 
+        </div>
 
 
 <script type="text/javascript">
@@ -124,7 +124,7 @@ $('.loader').ready(function() {
     $('.loader').css("display", "none");
   }, 500);
 });
-</script>  
+</script>
 
 <script type="text/javascript">
   //store coupon ajax call
@@ -146,4 +146,4 @@ $('.loader').ready(function() {
       }
     });
   });
-</script>   
+</script>

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend') }}/styles/cart_styles.css">
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontend') }}/styles/cart_responsive.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/styles/cart_styles.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/styles/cart_responsive.css">
 @include('layouts.front_partial.collaps_nav')
 
 
@@ -12,7 +12,7 @@
 				<div class="col-lg-8">
 					<div class="cart_container card p-1">
 						<div class="cart_title text-center">Billing Address</div>
-						
+
 						  <form action="{{ route('order.place') }}" method="post" id="order-place">
 						  	@csrf
 							<div class="row p-4">
@@ -32,7 +32,7 @@
 								<label>Shipping Address <span class="text-danger">*</span> </label>
 								<input type="text" class="form-control" name="c_address" required="" >
 							  </div>
-							  
+
 							  <div class="form-group col-lg-6">
 								<label>Email Address</label>
 								<input type="text" class="form-control" name="c_email" >
@@ -62,7 +62,7 @@
 							  	 	<label>Hand Cash</label>
 							  	 	<input type="radio"  name="payment_type" value="Hand Cash" >
 							  	   </div>
-							  	   
+
 							</div>
 							<div class="form-group pl-2">
 							  	<button type="submit" class="btn btn-info p-2">Order Place</button>
@@ -71,10 +71,10 @@
 							<span class="visually-hidden pl-2 d-none progress">Progressing.....</span>
 
 						  </form>
-								
+
 
 						<!-- Order Total -->
-						
+
 					</div>
 				</div>
 				<div class="col-lg-4" >
@@ -108,7 +108,7 @@
 							  <div class="form-group">
 							  	<button type="submit" class="btn btn-info">Apply Coupon</button>
 							  </div>
-							</div>	
+							</div>
 						</form>
 						@endif
 					</div>
@@ -118,7 +118,7 @@
 		</div>
 	</div>
 
-	
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript">
 

@@ -61,11 +61,11 @@ class TicketController extends Controller
                     ->addIndexColumn()
                     ->editColumn('status',function($row){
                         if ($row->status==1) {
-                            return '<span class="badge badge-warning"> Đang xử lý </span>';
+                            return '<span class="badge badge-warning"> Running </span>';
                         }elseif($row->status==2){
-                            return '<span class="badge badge-muted"> Đóng </span>';
+                            return '<span class="badge badge-muted"> Close </span>';
                         }else{
-                            return '<span class="badge badge-danger"> Đang chờ </span>';
+                            return '<span class="badge badge-danger"> Pending </span>';
                         }
                     })
                     ->editColumn('date',function($row){
@@ -114,7 +114,7 @@ class TicketController extends Controller
 
         DB::table('replies')->insert($data);
         DB::table('tickets')->where('id',$request->ticket_id)->update(['status'=>1]);
-        $notification=array('messege' => 'Phiếu được trả lời!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Replied Done!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
 
@@ -128,7 +128,7 @@ class TicketController extends Controller
     public function destroy($id)
     {
         DB::table('tickets')->where('id',$id)->delete();
-        return response()->json('Phiếu được xóa!');
+        return response()->json('successfully deleted!');
     }
 
 }

@@ -52,7 +52,7 @@ class RoleController extends Controller
         $data['is_admin']=1;
         $data['role_admin']=1;
         DB::table('users')->insert($data);
-        $notification=array('messege' => 'Phân quyền được thêm!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Role Created!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
 
@@ -82,7 +82,7 @@ class RoleController extends Controller
         $data['setting']=$request->setting;
         $data['userrole']=$request->userrole;
         DB::table('users')->where('id',$id)->update($data);
-        $notification=array('messege' => 'Phân quyền được cật nhật!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Role Updated!', 'alert-type' => 'success');
         return redirect()->route('manage.role')->with($notification);
 
     }
@@ -91,7 +91,7 @@ class RoleController extends Controller
     public function destroy($id)
     {
         DB::table('users')->where('id',$id)->delete();
-        $notification=array('messege' => 'Phân quyền được xóa!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Role Deleted!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
 

@@ -39,7 +39,7 @@ class IndexController extends Controller
         $related_product=DB::table('products')->where('subcategory_id',$product->subcategory_id)->orderBy('id','DESC')->take(10)->get();
         $review=Review::where('product_id',$product->id)->orderBy('id','DESC')->take(6)->get();
 
-
+        
 
         return view('frontend.product.product_details',compact('product','related_product','review'));
     }
@@ -115,9 +115,9 @@ class IndexController extends Controller
               $data=array();
               $data['email']=$request->email;
               DB::table('newsletters')->insert($data);
-              return response()->json('Thanks for subscribe us!');
+              return response()->json('Thanks for subscribe us!');  
         }
-
+       
 
     }
 
@@ -127,8 +127,8 @@ class IndexController extends Controller
     {
         return view('frontend.order_tracking');
     }
-
-
+   
+   
     //__check orer
     public function CheckOrder(Request $request)
     {
@@ -161,7 +161,7 @@ class IndexController extends Controller
         $products=DB::table('campaign_product')->leftJoin('products','campaign_product.product_id','products.id')
                     ->select('products.name','products.code','products.thumbnail','products.slug','campaign_product.*')
                     ->where('campaign_product.campaign_id',$id)
-                    ->paginate(32);
+                    ->paginate(32);          
         return view('frontend.campaign.product_list',compact('products'));
     }
 
@@ -170,7 +170,7 @@ class IndexController extends Controller
     {
         $product=Product::where('slug',$slug)->first();
                  Product::where('slug',$slug)->increment('product_views');
-        $product_price=DB::table('campaign_product')->where('product_id',$product->id)->first();
+        $product_price=DB::table('campaign_product')->where('product_id',$product->id)->first();         
         $related_product=DB::table('campaign_product')->leftJoin('products','campaign_product.product_id','products.id')
                     ->select('products.name','products.code','products.thumbnail','products.slug','campaign_product.*')
                     ->inRandomOrder(12)->get();

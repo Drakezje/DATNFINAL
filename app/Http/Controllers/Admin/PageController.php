@@ -36,7 +36,7 @@ class PageController extends Controller
         $data['page_title']=$request->page_title;
         $data['page_description']=$request->page_description;
         DB::table('pages')->insert($data);
-        $notification=array('messege' => 'Trang được tạo!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Page Created!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
 
     }
@@ -45,7 +45,7 @@ class PageController extends Controller
     public function destroy($id)
     {
         DB::table('pages')->where('id',$id)->delete();
-        $notification=array('messege' => 'Trang được xóa!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Page Deleted!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
 
@@ -67,7 +67,7 @@ class PageController extends Controller
         $data['page_title']=$request->page_title;
         $data['page_description']=$request->page_description;
         DB::table('pages')->where('id',$id)->update($data);
-        $notification=array('messege' => 'Trang được cật nhật!', 'alert-type' => 'success');
+        $notification=array('messege' => 'Page Updated!', 'alert-type' => 'success');
         return redirect()->route('page.index')->with($notification);
     }
 
