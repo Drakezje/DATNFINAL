@@ -119,7 +119,6 @@ class ProductController extends Controller
            'brand_id' => 'required',
            'unit' => 'required',
            'selling_price' => 'required',
-           'color' => 'required',
            'description' => 'required',
        ]);
 
@@ -204,7 +203,6 @@ class ProductController extends Controller
            'brand_id' => 'required',
            'unit' => 'required',
            'selling_price' => 'required',
-           'color' => 'required',
            'description' => 'required',
        ]);
 

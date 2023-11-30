@@ -19,15 +19,22 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('subcategory_id');
             $table->integer('childcategory_id')->nullable();
             $table->integer('brand_id')->nullable();
+            $table->integer('pickup_point_id')->nullable();
             $table->string('name');
             $table->string('code');
+            $table->string('color');
+            $table->string('slug');
+            $table->string('size');
             $table->string('unit')->nullable();
             $table->string('tags')->nullable();
             $table->string('video')->nullable();
+            $table->integer('product_slider')->nullable();
+            $table->integer('product_views')->nullable();
             $table->string('purchase_price')->nullable();
             $table->string('selling_price')->nullable();
             $table->string('discount_price')->nullable();
             $table->string('stock_quantity')->nullable();
+            $table->tinyInteger('trendy')->nullable()->length(2);
             $table->integer('warehouse')->nullable();
             $table->string('description')->nullable();
             $table->string('thumbnail')->nullable();
@@ -38,10 +45,10 @@ class CreateProductsTable extends Migration
             $table->integer('flash_deal_id')->nullable();
             $table->integer('cash_on_delivery')->nullable();
             $table->integer('admin_id')->nullable();
+
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('subcategory_id')->references('id')->on('subcategories')->onDelete('cascade');
-
         });
     }
 

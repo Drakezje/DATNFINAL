@@ -26,7 +26,7 @@ class AdminController extends Controller
     {
     	Auth::logout();
     	$notification=array('messege' => 'You are logged out!', 'alert-type' => 'success');
-    	return redirect()->route('admin.login')->with($notification);
+    	return redirect()->route('home')->with($notification);
     }
 
     //password change page

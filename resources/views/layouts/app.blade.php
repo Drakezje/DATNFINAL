@@ -47,8 +47,12 @@
                                     <li>
                                         <a href="#">{{ Auth::user()->name }}<i class="fas fa-chevron-down"></i></a>
                                         <ul style="width:200px;">
-                                            <li><a href="{{ route('home') }}">Profile</a></li>
-                                            <li><a href="{{ route('customer.logout') }}">Logout</a></li>
+                                            @if (Auth::user()->is_admin==1)
+                                            <li><a href="{{ route('admin.home') }}">Quản trị website</a></li>
+                                            @else
+                                            <li><a href="{{ route('home') }}">Thông tin cá nhân</a></li>
+                                            @endif
+                                            <li><a href="{{ route('customer.logout') }}">Đăng xuất</a></li>
                                         </ul>
                                     </li>
 
@@ -63,16 +67,16 @@
                                         <a href="#">Login<i class="fas fa-chevron-down"></i></a>
                                         <ul style="width:300px; padding:10px;">
                                            <div>
-                                            <strong>login your account</strong><br>
+                                            <strong>Đăng nhập tài khoản</strong><br>
                                             <br>
                                                <form action="{{ route('login') }}" method="post">
                                                 @csrf
                                                    <div class="form-group">
-                                                       <label>Email Address</label>
+                                                       <label>Địa chỉ email</label>
                                                        <input type="email" class="form-control" name="email" autocomplete="off" required="">
                                                    </div>
                                                    <div class="form-group">
-                                                       <label>Password</label>
+                                                       <label>Mật khẩu</label>
                                                        <input type="password" class="form-control" name="password" required="">
                                                    </div>
                                                    <div class="form-group row">
@@ -81,23 +85,23 @@
                                                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                                                <label class="form-check-label" for="remember">
-                                                                   {{ __('Remember Me') }}
+                                                                   {{ __('Ghi nhớ') }}
                                                                </label>
                                                            </div>
                                                        </div>
                                                    </div>
                                                    <div class="form-group">
-                                                       <button type="submit" class="btn btn-sm btn-info">login</button>
+                                                       <button type="submit" class="btn btn-success btn-sm btn-block text-white">Đăng nhập</button>
                                                    </div>
                                                </form>
                                                <div class="form-group">
-                                                 <a href="{{ route('social.oauth', 'google') }}" class="btn btn-danger btn-sm btn-block text-white">Login WIth Google</a>
+                                                 <a href="{{ route('social.oauth', 'google') }}" class="btn btn-danger btn-sm btn-block text-white">Đăng nhập với google</a>
                                                 </div>
                                            </div>
                                         </ul>
                                     </li>
                                     <li>
-                                    <a href="{{ route('register') }}">Register</a>
+                                    <a href="{{ route('register') }}">Đăng ký</a>
                                     </li>
                                 </ul>
                             </div>
@@ -117,7 +121,7 @@
                     <!-- Logo -->
                     <div class="col-lg-2 col-sm-3 col-3 order-1">
                         <div class="logo_container">
-                            <div class="logo"><a href="{{ url('/') }}">LearnHun</a></div>
+                            <div class="logo"><a href="{{ url('/') }}">DATN</a></div>
                         </div>
                     </div>
 

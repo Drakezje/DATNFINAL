@@ -57,10 +57,10 @@ class BrandController extends Controller
     	 //working with image
     	  $photo=$request->brand_logo;
     	  $photoname=uniqid().'.'.$photo->getClientOriginalExtension();
-    	  // $photo->move('public/files/brand/',$photoname);  //without image intervention
-    	  Image::make($photo)->resize(240,120)->save('public/files/brand/'.$photoname);  //image intervention
+    	  // $photo->move('files/brand/',$photoname);  //without image intervention
+    	  Image::make($photo)->resize(240,120)->save('files/brand/'.$photoname);  //image intervention
 
-    	$data['brand_logo']='public/files/brand/'.$photoname;   // public/files/brand/plus-point.jpg
+    	$data['brand_logo']='files/brand/'.$photoname;   // files/brand/plus-point.jpg
     	DB::table('brands')->insert($data);
     	$notification=array('messege' => 'Brand Inserted!', 'alert-type' => 'success');
     	return redirect()->back()->with($notification);
@@ -99,8 +99,8 @@ class BrandController extends Controller
     	        }
     		  $photo=$request->brand_logo;
     	      $photoname=uniqid().'.'.$photo->getClientOriginalExtension();
-    	      Image::make($photo)->resize(240,120)->save('public/files/brand/'.$photoname);
-    	      $data['brand_logo']='public/files/brand/'.$photoname;
+    	      Image::make($photo)->resize(240,120)->save('files/brand/'.$photoname);
+    	      $data['brand_logo']='files/brand/'.$photoname;
     	      DB::table('brands')->where('id',$request->id)->update($data);
     	      $notification=array('messege' => 'Brand Update!', 'alert-type' => 'success');
     	      return redirect()->back()->with($notification);

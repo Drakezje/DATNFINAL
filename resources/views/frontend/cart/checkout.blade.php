@@ -55,12 +55,12 @@
 							  	 	<input type="radio"  name="payment_type" value="Paypal">
 							  	   </div>
 							  	   <div class="form-group col-lg-4">
-							  	 	<label>Bkash/Rocket/Nagad </label>
-							  	 	<input type="radio"  name="payment_type" checked="" value="Aamarpay" >
+							  	 	<label>VNPAY</label>
+							  	 	<input type="radio"  name="payment_type" checked="" value="VNPAY" >
 							  	   </div>
 							  	   <div class="form-group col-lg-4">
 							  	 	<label>Hand Cash</label>
-							  	 	<input type="radio"  name="payment_type" value="Hand Cash" >
+							  	 	<input type="radio"  name="payment_type" value="COD" >
 							  	   </div>
 
 							</div>

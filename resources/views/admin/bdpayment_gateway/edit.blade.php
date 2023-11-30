@@ -28,7 +28,7 @@
           <div class="col-4">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Aamarpay Payment gateway</h3>
+                <h3 class="card-title">VNPAY</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -42,10 +42,10 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Signature KEY</label>
-                    <input type="text" class="form-control" name="signature_key" value="{{ $aamarpay->signature_key }}" required> 
+                    <input type="text" class="form-control" name="signature_key" value="{{ $aamarpay->signature_key }}" required>
                   </div>
                   <div class="form-group">
-                    <input type="checkbox"  name="status" value="1" @if($aamarpay->status==1) checked @endif > 
+                    <input type="checkbox"  name="status" value="1" @if($aamarpay->status==1) checked @endif >
                     <label for="exampleInputEmail1">Live Server</label>
                     <small>(If checbox are not checked it working for sandbox only)</small>
                   </div>
@@ -58,7 +58,7 @@
             </div>
           </div>
 
-          <div class="col-4">
+          {{-- <div class="col-4">
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">SurjoPay Payment gateway</h3>
@@ -79,7 +79,7 @@
                     <input type="text" class="form-control" name="signature_key" value="{{ $surjopay->signature_key }}" required>
                   </div>
                   <div class="form-group">
-                    <input type="checkbox"  name="status" value="1" @if($surjopay->status==1) checked @endif > 
+                    <input type="checkbox"  name="status" value="1" @if($surjopay->status==1) checked @endif >
                     <label for="exampleInputEmail1">Live </label> <small>(If checbox are not checked it working for sandbox only)</small>
                   </div>
                 </div>
@@ -89,9 +89,9 @@
                 </div>
               </form>
             </div>
-          </div>
+          </div> --}}
 
-
+{{--
           <div class="col-4">
             <div class="card card-primary">
               <div class="card-header">
@@ -108,10 +108,10 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Signature KEY</label>
-                    <input type="text" class="form-control" name="signature_key" value="{{ $ssl->signature_key }}" required> 
+                    <input type="text" class="form-control" name="signature_key" value="{{ $ssl->signature_key }}" required>
                   </div>
                   <div class="form-group">
-                    <input type="checkbox"  name="status" value="1" @if($ssl->status==1) checked @endif > 
+                    <input type="checkbox"  name="status" value="1" @if($ssl->status==1) checked @endif >
                     <label for="exampleInputEmail1">Live (If checbox are not checked it working for sandbox only)</label>
                   </div>
                 </div>
@@ -121,7 +121,7 @@
                 </div>
               </form>
             </div>
-          </div>
+          </div> --}}
 
 
         </div>

@@ -68,8 +68,8 @@ class CampaignController extends Controller
           $photo=$request->image;
           $slug=Str::slug($request->title, '-'); //its only for image name
           $photoname=$slug.'.'.$photo->getClientOriginalExtension();
-          Image::make($photo)->resize(468,90)->save('public/files/campaign/'.$photoname);  //image intervention
-        $data['image']='public/files/campaign/'.$photoname;   // public/files/brand/plus-point.jpg
+          Image::make($photo)->resize(468,90)->save('files/campaign/'.$photoname);  //image intervention
+        $data['image']='files/campaign/'.$photoname;   // files/brand/plus-point.jpg
         DB::table('campaigns')->insert($data);
         $notification=array('messege' => 'Campaign Inserted!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
@@ -112,8 +112,8 @@ class CampaignController extends Controller
                 }
               $photo=$request->image;
               $photoname=$slug.'.'.$photo->getClientOriginalExtension();
-              Image::make($photo)->resize(468,90)->save('public/files/campaign/'.$photoname);
-              $data['image']='public/files/campaign/'.$photoname;
+              Image::make($photo)->resize(468,90)->save('files/campaign/'.$photoname);
+              $data['image']='files/campaign/'.$photoname;
               DB::table('campaigns')->where('id',$request->id)->update($data);
               $notification=array('messege' => 'Campaign Update!', 'alert-type' => 'success');
               return redirect()->back()->with($notification);

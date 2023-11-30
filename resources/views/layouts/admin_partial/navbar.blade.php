@@ -10,7 +10,7 @@
         </a>
       </li> --}}
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link text-danger"> <b> POS ORDER </b></a>
+        <a href="#" class="nav-link text-danger"> <b> DATN </b></a>
       </li>
     </ul>
 

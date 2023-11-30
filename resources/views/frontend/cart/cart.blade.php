@@ -32,7 +32,6 @@
 										</div>
 										@if($row->options->size !=NULL)
 										<div class="cart_item_color cart_info_col">
-
 											<div class="cart_item_text">
 												<select class="custom-select form-control-sm size" name="size" style="min-width: 100px;" data-id="{{ $row->rowId }}">
       												   @foreach($sizes as $size)
@@ -54,6 +53,7 @@
 												</select>
 											</div>
 										</div>
+
 										@endif
 
 										<div class="cart_item_quantity cart_info_col">
