@@ -30,10 +30,6 @@ Route::group(['namespace'=>'App\Http\Controllers\Front'], function(){
     Route::get('/remove/coupon','CheckoutController@RemoveCoupon')->name('coupon.remove');
     Route::post('/order/place','CheckoutController@OrderPlace')->name('order.place');
 
-    //vnpay
-    Route::get('/vnpay_payment','CheckoutController@vnpay')->name('vnpay');
-
-
     Route::post('/addtocart','CartController@AddToCartQV')->name('add.to.cart.quickview');
     Route::get('/cartproduct/remove/{rowId}','CartController@RemoveProduct');
     Route::get('/cartproduct/updateqty/{rowId}/{qty}','CartController@UpdateQty');
