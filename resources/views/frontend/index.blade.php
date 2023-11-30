@@ -19,9 +19,9 @@
                     <div class="banner_content">
                         <h1 class="banner_text">{{ $bannerproduct->name }}</h1>
                         @if($bannerproduct->discount_price==NULL)
-                         <div class="banner_price">{{ $setting->currency }}{{ $bannerproduct->selling_price }}</div>
+                         <div class="banner_price">{{ $bannerproduct->selling_price }}{{ $setting->currency }}</div>
                         @else
-                          <div class="banner_price"><span>{{ $setting->currency }}{{ $bannerproduct->selling_price }}</span>{{ $setting->currency }}{{ $bannerproduct->discount_price }}</div>
+                          <div class="banner_price"><span>{{ $bannerproduct->selling_price }}{{ $setting->currency }}</span>{{ $bannerproduct->discount_price }}{{ $setting->currency }}</div>
                         @endif
                         <div class="banner_product_name">{{ $bannerproduct->brand->brand_name }}</div>
                         <div class="button banner_button"><a href="{{ route('product.details',$bannerproduct->slug) }}">Shop Now</a></div>
@@ -96,9 +96,9 @@
                                         <div class="deals_info_line d-flex flex-row justify-content-start">
                                             <div class="deals_item_category"><a href="#">{{ $row->subcategory->subcategory_name }}</a></div>
                                             @if($row->discount_price==NULL)
-                                                 <div class="deals_item_price_a ml-auto">{{ $setting->currency }}{{ $row->selling_price }}</div>
+                                                 <div class="deals_item_price_a ml-auto">{{ $row->selling_price }}{{ $setting->currency }}</div>
                                                @else
-                                                 <div class="deals_item_price_a ml-auto">{{ $setting->currency }} {{ $row->discount_price }}</div>
+                                                 <div class="deals_item_price_a ml-auto"> {{ $row->discount_price }}{{ $setting->currency }}</div>
                                                @endif
                                         </div>
                                         <div class="deals_info_line d-flex flex-row justify-content-start">
@@ -177,9 +177,9 @@
                                             </div>
                                             <div class="product_content">
                                                 @if($row->discount_price==NULL)
-                                                  <div class="product_price discount">{{ $setting->currency }}{{ $row->selling_price }}</div>
+                                                  <div class="product_price discount">{{ $row->selling_price }}{{ $setting->currency }}</div>
                                                 @else
-                                                  <div class="product_price discount">{{ $setting->currency }} {{ $row->discount_price }}<span>{{ $setting->currency }} {{ $row->selling_price }}</span></div>
+                                                  <div class="product_price discount"> {{ $row->discount_price }}{{ $setting->currency }}<span> {{ $row->selling_price }}{{ $setting->currency }}</span></div>
                                                 @endif
                                                 <div class="product_name"><div>
                                                     <a href="{{ route('product.details',$row->slug) }}">{{ substr($row->name,0,20) }}..</a></div>
@@ -221,9 +221,9 @@
                                                 </div>
                                                 <div class="product_content">
                                                     @if($row->discount_price==NULL)
-                                                      <div class="product_price discount">{{ $setting->currency }}{{ $row->selling_price }}</div>
+                                                      <div class="product_price discount">{{ $row->selling_price }}{{ $setting->currency }}</div>
                                                     @else
-                                                      <div class="product_price discount">{{ $setting->currency }} {{ $row->discount_price }}<span>{{ $setting->currency }} {{ $row->selling_price }}</span></div>
+                                                      <div class="product_price discount"> {{ $row->discount_price }}{{ $setting->currency }}<span> {{ $row->selling_price }}{{ $setting->currency }}</span></div>
                                                     @endif
                                                     <div class="product_name"><div>
                                                         <a href="{{ route('product.details',$row->slug) }}">{{ substr($row->name,0,20) }}..</a></div>
@@ -336,9 +336,9 @@
                                                 <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('files/product/'.$row->thumbnail) }}" alt="{{ $row->name }}" height="100%" width="55%"></div>
                                                 <div class="product_content">
                                                     @if($row->discount_price==NULL)
-                                                      <div class="product_price discount">{{ $setting->currency }}{{ $row->selling_price }}</div>
+                                                      <div class="product_price discount">{{ $row->selling_price }}{{ $setting->currency }}</div>
                                                     @else
-                                                      <div class="product_price discount">{{ $setting->currency }} {{ $row->discount_price }}<span>{{ $setting->currency }} {{ $row->selling_price }}</span></div>
+                                                      <div class="product_price discount"> {{ $row->discount_price }}{{ $setting->currency }}<span> {{ $row->selling_price }}{{ $setting->currency }}</span></div>
                                                     @endif
 
                                                     <div class="product_name"><div><a href="{{ route('product.details',$row->slug) }}">{{ $row->name }}</a></div></div>
@@ -459,10 +459,10 @@
                                     <div class="trends_category"><a href="#">{{ $row->category->category_name }}</a> <div class="trends_price">
 
                                         @if($row->discount_price==NULL)
-                                        {{ $setting->currency }}{{ $row->selling_price }}
+                                        {{ $row->selling_price }}{{ $setting->currency }}
                                         @else
-                                        {{ $setting->currency }} {{ $row->discount_price }}
-                                        <del class="text-danger">{{ $setting->currency }} {{ $row->selling_price }}</del>
+                                         {{ $row->discount_price }}{{ $setting->currency }}
+                                        <del class="text-danger">{{ $row->selling_price }}{{ $setting->currency }}</del>
                                         @endif
                                     </div></div>
                                           <div class="trends_info clearfix">
@@ -591,10 +591,10 @@
                                     <div class="viewed_image"><img src="{{ asset('files/product/'.$row->thumbnail) }}" alt="{{ $row->name }}"></div>
                                     <div class="viewed_content text-center">
                                         @if($row->discount_price==NULL)
-                                        {{ $setting->currency }}{{ $row->selling_price }}
+                                        {{ $row->selling_price }}{{ $setting->currency }}
                                         @else
-                                        {{ $setting->currency }} {{ $row->discount_price }}
-                                        <del class="text-danger">{{ $setting->currency }} {{ $row->selling_price }}</del>
+                                         {{ $row->discount_price }}{{ $setting->currency }}
+                                        <del class="text-danger">{{ $row->selling_price }}{{ $setting->currency }}</del>
                                         @endif
                                         <div class="viewed_name"><a href="{{ route('product.details',$row->slug) }}">{{ substr($row->name,0,30) }}...</a></div>
                                     </div>
