@@ -47,8 +47,8 @@
                                     <li>
                                         <a href="#">{{ Auth::user()->name }}<i class="fas fa-chevron-down"></i></a>
                                         <ul style="width:200px;">
-                                            <li><a href="{{ route('home') }}">Profile</a></li>
-                                            <li><a href="{{ route('customer.logout') }}">Logout</a></li>
+                                            <li><a href="{{ route('home') }}">Thông tin cá nhân</a></li>
+                                            <li><a href="{{ route('customer.logout') }}">Đăng xuất</a></li>
                                         </ul>
                                     </li>
 
@@ -87,7 +87,7 @@
                                                        </div>
                                                    </div>
                                                    <div class="form-group">
-                                                       <button type="submit" class="btn btn-sm btn-info">Đăng nhập</button>
+                                                       <button type="submit" class="btn btn-success btn-sm btn-block text-white">Đăng nhập</button>
                                                    </div>
                                                </form>
                                                <div class="form-group">
@@ -127,13 +127,13 @@
                             <div class="header_search_content">
                                 <div class="header_search_form_container">
                                     <form action="#" class="header_search_form clearfix">
-                                        <input type="search" required="required" class="header_search_input" placeholder="Search for products...">
+                                        <input type="search" required="required" class="header_search_input" placeholder="Tìm kiếm...">
                                         <div class="custom_dropdown">
                                             <div class="custom_dropdown_list">
-                                                <span class="custom_dropdown_placeholder clc">All Categories</span>
+                                                <span class="custom_dropdown_placeholder clc">Tất cả danh mục</span>
                                                 <i class="fas fa-chevron-down"></i>
                                                 <ul class="custom_list clc">
-                                                    <li><a class="clc" href="#">All Categories</a></li>
+                                                    <li><a class="clc" href="#">Tất cả danh mục</a></li>
                                                     <li><a class="clc" href="#">Computers</a></li>
                                                     <li><a class="clc" href="#">Laptops</a></li>
                                                     <li><a class="clc" href="#">Cameras</a></li>
