@@ -23,8 +23,8 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('code');
             $table->string('color');
-            $table->string('slug');
             $table->string('size');
+            $table->string('slug');
             $table->string('unit')->nullable();
             $table->string('tags')->nullable();
             $table->string('video')->nullable();
@@ -34,6 +34,8 @@ class CreateProductsTable extends Migration
             $table->string('selling_price')->nullable();
             $table->string('discount_price')->nullable();
             $table->string('stock_quantity')->nullable();
+            $table->string('date')->nullable();
+            $table->string('month')->nullable();
             $table->tinyInteger('trendy')->nullable()->length(2);
             $table->integer('warehouse')->nullable();
             $table->string('description')->nullable();

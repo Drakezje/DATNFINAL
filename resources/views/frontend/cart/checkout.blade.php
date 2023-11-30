@@ -59,7 +59,7 @@
 							  	 	<input type="radio"  name="payment_type" checked="" value="VNPAY" >
 							  	   </div>
 							  	   <div class="form-group col-lg-4">
-							  	 	<label>Hand Cash</label>
+							  	 	<label>COD</label>
 							  	 	<input type="radio"  name="payment_type" value="COD" >
 							  	   </div>
 

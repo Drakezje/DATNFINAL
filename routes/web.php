@@ -41,7 +41,7 @@ Route::group(['namespace'=>'App\Http\Controllers\Front'], function(){
     Route::get('/clear/wishlist','CartController@Clearwishlist')->name('clear.wishlist');
     Route::get('/add/wishlist/{id}','CartController@AddWishlist')->name('add.wishlist');
     Route::get('/wishlist/product/delete/{id}','CartController@WishlistProductdelete')->name('wishlistproduct.delete');
-    
+
     //categorywise product
     Route::get('/category/product/{id}','IndexController@categoryWiseProduct')->name('categorywise.product');
     Route::get('/subcategory/product/{id}','IndexController@SubcategoryWiseProduct')->name('subcategorywise.product');
@@ -49,11 +49,11 @@ Route::group(['namespace'=>'App\Http\Controllers\Front'], function(){
     Route::get('/brandwise/product/{id}','IndexController@BrandWiseProduct')->name('brandwise.product');
 
      //setting profile
-    Route::get('/home/setting','ProfileController@setting')->name('customer.setting'); 
-    Route::post('/home/password/update','ProfileController@PasswordChange')->name('customer.password.change'); 
+    Route::get('/home/setting','ProfileController@setting')->name('customer.setting');
+    Route::post('/home/password/update','ProfileController@PasswordChange')->name('customer.password.change');
 
-    Route::get('/my/order','ProfileController@MyOrder')->name('my.order'); 
-    Route::get('/view/order/{id}','ProfileController@ViewOrder')->name('view.order'); 
+    Route::get('/my/order','ProfileController@MyOrder')->name('my.order');
+    Route::get('/view/order/{id}','ProfileController@ViewOrder')->name('view.order');
 
     //review for product
     Route::post('/store/review','ReviewController@store')->name('store.review');
@@ -86,12 +86,12 @@ Route::group(['namespace'=>'App\Http\Controllers\Front'], function(){
         return redirect()->to('/');
     })->name('cancel');
 
-    
+
     Route::get('/contact-us','IndexController@Contact')->name('contact');
     Route::get('/our-blog','IndexController@Blog')->name('blog');
-    
+
     //__campaign__//
-    Route::get('/campain/products/{id}','IndexController@CampaignProduct')->name('frontend.campaign.product');   
+    Route::get('/campain/products/{id}','IndexController@CampaignProduct')->name('frontend.campaign.product');
     Route::get('/camapign-product-details/{slug}','IndexController@CampaignProductDetails')->name('campaign.product.details');
 });
 
