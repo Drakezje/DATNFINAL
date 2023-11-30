@@ -138,9 +138,9 @@ class ProductController extends Controller
        $data['pickup_point_id']=$request->pickup_point_id;
        $data['unit']=$request->unit;
        $data['tags']=$request->tags;
-       $data['purchase_price']=$request->purchase_price;
-       $data['selling_price']=$request->selling_price;
-       $data['discount_price']=$request->discount_price;
+       $data['purchase_price']=number_format($request->purchase_price);
+       $data['selling_price']=number_format($request->selling_price);
+       $data['discount_price']=number_format($request->discount_price);
        $data['warehouse']=$request->warehouse;
        $data['stock_quantity']=$request->stock_quantity;
        $data['color']=$request->color;
@@ -222,9 +222,9 @@ class ProductController extends Controller
        $data['pickup_point_id']=$request->pickup_point_id;
        $data['unit']=$request->unit;
        $data['tags']=$request->tags;
-       $data['purchase_price']=$request->purchase_price;
-       $data['selling_price']=$request->selling_price;
-       $data['discount_price']=$request->discount_price;
+       $data['purchase_price']=number_format($request->purchase_price);
+       $data['selling_price']=number_format($request->selling_price);
+       $data['discount_price']=number_format($request->discount_price);
        $data['warehouse']=$request->warehouse;
        $data['stock_quantity']=$request->stock_quantity;
        $data['color']=$request->color;

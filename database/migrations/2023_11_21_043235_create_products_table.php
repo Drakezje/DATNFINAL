@@ -30,9 +30,9 @@ class CreateProductsTable extends Migration
             $table->string('video')->nullable();
             $table->integer('product_slider')->nullable();
             $table->integer('product_views')->nullable();
-            $table->string('purchase_price')->nullable();
-            $table->string('selling_price')->nullable();
-            $table->string('discount_price')->nullable();
+            $table->float('purchase_price', 8, 2)->nullable();
+            $table->float('selling_price', 8, 2)->nullable();
+            $table->float('discount_price', 8, 2)->nullable();
             $table->string('stock_quantity')->nullable();
             $table->string('date')->nullable();
             $table->string('month')->nullable();
