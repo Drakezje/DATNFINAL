@@ -122,52 +122,52 @@ class CheckoutController extends Controller
             $notification = array('messege' => 'Successfullt Order Placed!', 'alert-type' => 'success');
             return redirect()->to('/')->with($notification);
 
-            //__aamarpay payment gateway
-        } elseif ($request->payment_type == "VNPAY") {
-            $aamarpay = DB::table('payment_gateway_bd')->first();
-            if ($aamarpay->store_id == NULL) {
-                $notification = array('messege' => 'Please setting your payment gateway', 'alert-type' => 'error');
-                return redirect()->back()->with($notification);
-            } else {
-                if ($aamarpay->status == 1) {
-                    $url = 'https://secure.aamarpay.com/request.php'; // live url https://secure.aamarpay.com/request.php
-                } else {
-                    $url = 'https://sandbox.aamarpay.com/request.php';
+            //vnpay
+        }
+
+        /* $aamarpay=DB::table('payment_gateway_bd')->first();
+            if($aamarpay->store_id==NULL){
+                 $notification=array('messege' => 'Please setting your payment gateway', 'alert-type' => 'error');
+                 return redirect()->back()->with($notification);
+            }else{
+                if($aamarpay->status==1){
+                    $url = 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html'; // live url https://secure.aamarpay.com/request.php
+                }else{
+                    $url = 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html';
                 }
 
-                $fields = array(
-                    'store_id' => $aamarpay->store_id, //store id will be aamarpay,  contact integration@aamarpay.com for test/live id
-                    'amount' => Cart::total(), //transaction amount
-                    'payment_type' => 'VISA', //no need to change
-                    'currency' => 'BDT',  //currenct will be USD/BDT
-                    'tran_id' => rand(1111111, 9999999), //transaction id must be unique from your end
-                    'cus_name' => $request->c_name,  //customer name
-                    'cus_email' => $request->c_email, //customer email address
-                    'cus_add1' => $request->c_address,  //customer address
-                    'cus_add2' => 'VN', //customer address
-                    'cus_city' => $request->c_city,  //customer city
-                    'cus_state' => 'VN',  //state
-                    'cus_postcode' => $request->c_zipcode, //postcode or zipcode
-                    'cus_country' => $request->c_country,  //country
-                    'cus_phone' => $request->c_phone, //customer phone number
-                    'cus_fax' => $request->c_extra_phone,  //fax
-                    'ship_name' => 'test1', //ship name
-                    'ship_add1' => 'VN1',  //ship address
-                    'ship_add2' => 'VN2',
-                    'ship_city' => 'VN',
-                    'ship_state' => 'VN',
-                    'ship_postcode' => '1212',
-                    'ship_country' => 'VN',
-                    'desc' => 'payment description',
-                    'success_url' => route('success'), //your success route
-                    'fail_url' => route('fail'), //your fail route
-                    'cancel_url' => route('cancel'), //your cancel url
-                    'opt_a' => $request->c_country,  //subtotal
-                    'opt_b' => $request->c_city, //payment_type
-                    'opt_c' => $request->c_phone,  //customer phone
-                    'opt_d' => $request->c_address,
-                    'signature_key' => $aamarpay->signature_key
-                ); //signature key will provided aamarpay, contact integration@aamarpay.com for test/live signature key
+             $fields = array(
+                'store_id' => $aamarpay->store_id, //store id will be aamarpay,  contact integration@aamarpay.com for test/live id
+                'amount' => Cart::total(), //transaction amount
+                'payment_type' => 'VISA', //no need to change
+                'currency' => 'BDT',  //currenct will be USD/BDT
+                'tran_id' => rand(1111111,9999999), //transaction id must be unique from your end
+                'cus_name' => $request->c_name,  //customer name
+                'cus_email' => $request->c_email, //customer email address
+                'cus_add1' => $request->c_address,  //customer address
+                'cus_add2' => 'Mohakhali DOHS', //customer address
+                'cus_city' => $request->c_city,  //customer city
+                'cus_state' => 'Dhaka',  //state
+                'cus_postcode' => $request->c_zipcode, //postcode or zipcode
+                'cus_country' => $request->c_country,  //country
+                'cus_phone' => $request->c_phone, //customer phone number
+                'cus_fax' => $request->c_extra_phone,  //fax
+                'ship_name' => 'ship name', //ship name
+                'ship_add1' => 'House B-121, Road 21',  //ship address
+                'ship_add2' => 'Mohakhali',
+                'ship_city' => 'Dhaka',
+                'ship_state' => 'Dhaka',
+                'ship_postcode' => '1212',
+                'ship_country' => 'Bangladesh',
+                'desc' => 'payment description',
+                'success_url' => route('success'), //your success route
+                'fail_url' => route('fail'), //your fail route
+                'cancel_url' => route('cancel'), //your cancel url
+                'opt_a' => $request->c_country,  //subtotal
+                'opt_b' => $request->c_city, //payment_type
+                'opt_c' => $request->c_phone,  //customer phone
+                'opt_d' => $request->c_address,
+                'signature_key' => $aamarpay->signature_key); //signature key will provided aamarpay, contact integration@aamarpay.com for test/live signature key
 
                 $fields_string = http_build_query($fields);
 
@@ -182,98 +182,150 @@ class CheckoutController extends Controller
                 curl_close($ch);
 
                 $this->redirect_to_merchant($url_forward);
-            }
-        }
+            } */
     }
 
 
-    function redirect_to_merchant($url)
-    {
+    /*  function redirect_to_merchant($url) {
 
-?>
+        ?>
         <html xmlns="http://www.w3.org/1999/xhtml">
+          <head><script type="text/javascript">
+            function closethisasap() { document.forms["redirectpost"].submit(); }
+          </script></head>
+          <body onLoad="closethisasap();">
 
-        <head>
-            <script type="text/javascript">
-                function closethisasap() {
-                    document.forms["redirectpost"].submit();
-                }
-            </script>
-        </head>
-
-        <body onLoad="closethisasap();">
-
-            <form name="redirectpost" method="post" action="<?php echo 'https://sandbox.aamarpay.com/' . $url; ?>"></form>
+            <form name="redirectpost" method="post" action="<?php echo 'https://sandbox.aamarpay.com/'.$url; ?>"></form>
             <!-- for live url https://secure.aamarpay.com -->
-        </body>
-
+          </body>
         </html>
-<?php
+        <?php
         exit;
-    }
+    }*/
 
 
     //__paymentgateway extra method
-    public function success(Request $request)
-    {
+    /*  public function success(Request $request){
 
-        $order = array();
-        $order['user_id'] = Auth::id();
-        $order['c_name'] = $request->cus_name;
-        $order['c_phone'] = $request->opt_c;
-        $order['c_country'] = $request->opt_a;
-        $order['c_address'] = $request->opt_d;
-        $order['c_email'] = $request->cus_email;
-        $order['c_city'] = $request->opt_b;
-        if (Session::has('coupon')) {
-            $order['subtotal'] = Cart::subtotal();
-            $order['coupon_code'] = Session::get('coupon')['name'];
-            $order['coupon_discount'] = Session::get('coupon')['discount'];
-            $order['after_dicount'] = Session::get('coupon')['after_discount'];
-        } else {
-            $order['subtotal'] = Cart::subtotal();
-        }
-        $order['total'] = Cart::total();
-        $order['payment_type'] = 'Aamarpay';
-        $order['tax'] = 0;
-        $order['shipping_charge'] = 0;
-        $order['order_id'] = rand(10000, 900000);
-        $order['status'] = 1;
-        $order['date'] = date('d-m-Y');
-        $order['month'] = date('F');
-        $order['year'] = date('Y');
+            $order=array();
+            $order['user_id']=Auth::id();
+            $order['c_name']=$request->cus_name;
+            $order['c_phone']=$request->opt_c;
+            $order['c_country']=$request->opt_a;
+            $order['c_address']=$request->opt_d;
+            $order['c_email']=$request->cus_email;
+            $order['c_city']=$request->opt_b;
+            if(Session::has('coupon')){
+                $order['subtotal']=Cart::subtotal();
+                $order['coupon_code']=Session::get('coupon')['name'];
+                $order['coupon_discount']=Session::get('coupon')['discount'];
+                $order['after_dicount']=Session::get('coupon')['after_discount'];
+            }else{
+                $order['subtotal']=Cart::subtotal();
 
-        $order_id = DB::table('orders')->insertGetId($order);
+            }
+            $order['total']=Cart::total();
+            $order['payment_type']='Aamarpay';
+            $order['tax']=0;
+            $order['shipping_charge']=0;
+            $order['order_id']=rand(10000,900000);
+            $order['status']=1;
+            $order['date']=date('d-m-Y');
+            $order['month']=date('F');
+            $order['year']=date('Y');
+
+            $order_id=DB::table('orders')->insertGetId($order);
 
 
-        Mail::to(Auth::user()->email)->send(new InvoiceMail($order));
+            Mail::to(Auth::user()->email)->send(new InvoiceMail($order));
 
-        //order details
-        $content = Cart::content();
+            //order details
+            $content=Cart::content();
 
-        $details = array();
-        foreach ($content as $row) {
-            $details['order_id'] = $order_id;
-            $details['product_id'] = $row->id;
-            $details['product_name'] = $row->name;
-            $details['color'] = $row->options->color;
-            $details['size'] = $row->options->size;
-            $details['quantity'] = $row->qty;
-            $details['single_price'] = $row->price;
-            $details['subtotal_price'] = $row->price * $row->qty;
-            DB::table('order_details')->insert($details);
-        }
+            $details=array();
+            foreach($content as $row){
+                $details['order_id']=$order_id;
+                $details['product_id']=$row->id;
+                $details['product_name']=$row->name;
+                $details['color']=$row->options->color;
+                $details['size']=$row->options->size;
+                $details['quantity']=$row->qty;
+                $details['single_price']=$row->price;
+                $details['subtotal_price']=$row->price*$row->qty;
+                DB::table('order_details')->insert($details);
+            }
 
-        Cart::destroy();
-        if (Session::has('coupon')) {
-            Session::forget('coupon');
-        }
-        $notification = array('messege' => 'Successfullt Order Placed!', 'alert-type' => 'success');
-        return redirect()->route('home')->with($notification);
+            Cart::destroy();
+            if (Session::has('coupon')) {
+                  Session::forget('coupon');
+            }
+            $notification=array('messege' => 'Successfullt Order Placed!', 'alert-type' => 'success');
+            return redirect()->route('home')->with($notification);
+
+
     }
-
-    public function fail(Request $request)
-    {
+   */
+    /*  public function fail(Request $request){
         return $request;
+    }
+   */
+
+
+    public function vnpay()
+    {
+
+        error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+
+        $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+        $vnp_Returnurl = "https://localhost/";
+        $vnp_TmnCode = "EX71VVZ8"; //Mã website tại VNPAY
+        $vnp_HashSecret = "AUTLYKRXCDKNQHESKNCMQOKQIRLKFRVV"; //Chuỗi bí mật
+
+        $vnp_TxnRef = rand(10000, 900000); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+        $vnp_OrderInfo = 'Thanh toán hóa đơn';
+        $vnp_OrderType = 'DATN';
+        $vnp_Amount = 200000 * 100;
+        $vnp_Locale = 'VN';
+        $vnp_BankCode = 'NCB';
+        $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+
+
+        if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+            $inputData['vnp_BankCode'] = $vnp_BankCode;
+        }
+        if (isset($vnp_Bill_State) && $vnp_Bill_State != "") {
+            $inputData['vnp_Bill_State'] = $vnp_Bill_State;
+        }
+
+        //var_dump($inputData);
+        ksort($inputData);
+        $query = "";
+        $i = 0;
+        $hashdata = "";
+        foreach ($inputData as $key => $value) {
+            if ($i == 1) {
+                $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
+            } else {
+                $hashdata .= urlencode($key) . "=" . urlencode($value);
+                $i = 1;
+            }
+            $query .= urlencode($key) . "=" . urlencode($value) . '&';
+        }
+
+        $vnp_Url = $vnp_Url . "?" . $query;
+        if (isset($vnp_HashSecret)) {
+            $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret); //
+            $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+        }
+        $returnData = array(
+            'code' => '00', 'message' => 'success', 'data' => $vnp_Url
+        );
+        if (isset($_POST['redirect'])) {
+            header('Location: ' . $vnp_Url);
+            die();
+        } else {
+            echo json_encode($returnData);
+        }
     }
 }

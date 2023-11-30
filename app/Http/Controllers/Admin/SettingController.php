@@ -147,8 +147,8 @@ class SettingController extends Controller
     public function AamarpayUpdate(Request $request)
     {
         $data=array();
-        $data['store_id']=$request->store_id;
-        $data['signature_key']=$request->signature_key;
+        $data['TmnCode']=$request->TmnCode;
+        $data['HashSecret']=$request->HashSecret;
         $data['status']=$request->status;
         DB::table('payment_gateway_bd')->where('id',$request->id)->update($data);
         $notification=array('messege' => 'Payment Gateway Update Updated!', 'alert-type' => 'success');
@@ -159,8 +159,8 @@ class SettingController extends Controller
     public function SurjopayUpdate(Request $request)
     {
         $data=array();
-        $data['store_id']=$request->store_id;
-        $data['signature_key']=$request->signature_key;
+        $data['TmnCode']=$request->TmnCode;
+        $data['HashSecret']=$request->HashSecret;
         $data['status']=$request->status;
         DB::table('payment_gateway_bd')->where('id',$request->id)->update($data);
         $notification=array('messege' => 'Payment Gateway Update Updated!', 'alert-type' => 'success');

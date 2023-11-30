@@ -37,12 +37,12 @@
                 <input type="hidden" name="id" value="{{ $aamarpay->id }}">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">StoreID</label>
-                    <input type="text" class="form-control" name="store_id" value="{{ $aamarpay->store_id }}" required>
+                    <label for="exampleInputEmail1">TmnCode</label>
+                    <input type="text" class="form-control" name="TmnCode" value="{{ $aamarpay->TmnCode }}" required>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Signature KEY</label>
-                    <input type="text" class="form-control" name="signature_key" value="{{ $aamarpay->signature_key }}" required>
+                    <label for="exampleInputEmail1">HashSecret</label>
+                    <input type="text" class="form-control" name="HashSecret" value="{{ $aamarpay->HashSecret }}" required>
                   </div>
                   <div class="form-group">
                     <input type="checkbox"  name="status" value="1" @if($aamarpay->status==1) checked @endif >
